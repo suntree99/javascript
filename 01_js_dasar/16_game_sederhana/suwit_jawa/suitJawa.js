@@ -37,7 +37,7 @@ while( tanya ){
 	} else if ( p == "semut" ) {
 		hasil = ( comp == "gajah" ) ? "KALAH" : "MENANG";
 	} else {
-		hasil = "Memasukkan pilihan yang salah!!";
+		hasil = "memasukkan pilihan yang salah!!";
 	}
 
 	// tampilkan hasilnya

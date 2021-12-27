@@ -5,18 +5,17 @@ var orang = [];
 orang[0] = "Budi";
 orang[1] = "Darmawan";
 orang[2] = "Ganteng"
-// array yang terlewat akan berisi kosong
+// orang[3] dan orang[4] yang terlewat akan berisi kosong (undefined)
 orang[5] = "Sekali"
 
 console.log(orang);
 
-// 2. Menghapus isi array (manual)
+// 2. Menghapus isi array (manual) dengan mengganti menjadi undefined
 orang[2] = undefined;
 
 console.log(orang);
 
 // 3. Menampilkan isi array
-
 // * .length
 var arr = ["Budi", "Iwan", "Wati", "Santi"]
 console.log(arr.length);
@@ -25,10 +24,11 @@ for ( i = 0; i < arr.length; i++) {
   console.log("Mahasiswa ke-" + (i+1) + " : " + arr[i]);
 }
 
-// * .join
+// Method pada Array
+// * .join (menggabungkan isi array)
 var arr = ["Budi", "Iwan", "Wati", "Santi"]
 console.log(arr.join()); // koma (,) adalah separator defaultnya
-console.log(arr.join(" - "));
+console.log(arr.join(" - "));  // isikan separator yang diinginkan didalam kurung
 
 // * .push (menambah elemen di akhir)
 arr.push("Dina", "Fitri");
@@ -45,10 +45,9 @@ console.log(arr.join(" - "));
 
 // * shift (menghapus elemen awal)
 arr.shift();
-
 console.log(arr.join(" - "));
 
-// * splice (menyisipkan)
+// * splice (menyisipkan, bisa sekaligus menghapus)
 // splice(indexAwalPenyisipan, mauDihapusBerapa, elemenBaru1, elemenBaru2, ...);
 arr.splice(2, 0, "Doddy");
 console.log(arr.join(" - "));
@@ -95,9 +94,8 @@ angka.sort(function(a,b) { // function(a,b) digunakan untuk mengurutkan dengan b
 console.log(angka.join(" - "));
 
 // * find(function()) (mencari satu nilai)
-
 var angka3 = angka.find(function(x) {
-  return x > 5; // mencari satu nilai > 5
+  return x > 5; // mencari satu nilai > 5 yang pertama kali ditemukan
 });
 console.log(angka3);
 

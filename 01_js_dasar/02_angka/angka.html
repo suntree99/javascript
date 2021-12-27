@@ -5,9 +5,10 @@
     <title>Angka</title>
   </head>
   <body>
-    <p>Silakan lihat di Console</p>
+    <p>Silakan lihat di Console (Inspect)</p>
 
     <script>
+      //pada dasarnya tidak ada bialngan integer di javascript yang ada hanyalah floating point 2^64
       //angka tanpa desimal (bilangan bulat)//
       console.log(10);
       console.log(2000);
@@ -15,11 +16,11 @@
       console.log(999999999999999); // maksimal akurasi 15 digit //
       console.log(9999999999999999); // hasilnya: 10000000000000000 //
       //angka dengan desimal//
-      console.log(3.14); // koma ditulis titik //
+      console.log(3.14); // koma ditulis titik, akurasi maksimal 17 digit di belakang koma //
       console.log(0.5);
       console.log(100.0);
       console.log(0.3 + 0.7);
-      console.log(0.2 + 0.1); // hasilnya: 0.30000000000000004 (hati-hati menjumlahkan bilangan positif) //
+      console.log(0.2 + 0.1); // hasilnya: 0.30000000000000004 (hati-hati menjumlahkan bilangan pecahan, hasilnya tidak terlalu akurat) //
       //eksponen//
       console.log(123e5); // hasilnya: 12300000 //
       console.log(123e-5); // hasilnya: 0.00123 //
@@ -28,14 +29,14 @@
       console.log(-25);
       console.log(-3.14);
       //jangan mengawali angka dengan 0 dan 0xFF//
-      console.log(022); // hasilnya: 18 (komputer menganggap ini bilangan oktal (0-7)) //
-      console.log(0xff); // hasilnya: (komputer menganggap ini bilangan oktal (0-7)) //
+      console.log(022); // hasilnya: 18 (komputer menganggap ini bilangan oktal (0-7) - bilangan berbasis 8) //
+      console.log(0xff); // hasilnya: 255 (komputer menganggap ini bilangan hexadesimal (0-9 & a-f) - bilangan basis 16) //
       //angka spesial (Infinity, - Infinity, NaN)//
       console.log(2 / 0); // hasilnya: Infinity //
       console.log(-2 / 0); // hasilnya: -Infinity //
       console.log(0 / 0); // hasilnya: NaN (Not a Number) //
       console.log(100 / "apel"); // angka dibagi string hasilnya: NaN //
-      console.log(100 / "10"); // angka dibagi angka dalam string hasilnya: 10 (string tetap diproses sebagai angka) //
+      console.log(100 / "10"); // angka dibagi angka dalam string hasilnya: 10 (string angka tetap diproses sebagai angka) //
     </script>
   </body>
 </html>

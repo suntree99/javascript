@@ -7,8 +7,8 @@
 <body>
 
   <script>
-    
-  // block Scope vs function scope
+
+  // block scope vs function scope
 
   // block scope (pada C++)
   // int i = 2;
@@ -21,7 +21,7 @@
   //   printf("genap!");
   // }
 
-  // hasilnya tidak tampil, karena block scope sehingga gepan yang dibawah tidak dikenali.
+  // hasilnya tidak tampil, karena c++ menganut block scope sehingga genap yang dibawah tidak dikenali.
 
   // function scope
   var i = 2;
@@ -34,18 +34,33 @@
     alert("genap!");
   }
 
-  // hasil tampil karena genap di bawah dikenali dari nilai di atasnya.
+  // hasil tampil karena javascript menganut function scope sehingga genap di bawah dikenali dari nilai di atasnya.
 
-  var a = 1;
-
+  
+  // global scope / windows scope
+  var a = 1; // dipanggil dengan a atau dengan window.a
+  
   function tes() {
     var b = 2;
     console.log(a); // item dalam dapat mengakses nilai luar
+    
+    // name conflict
+    // var a = 2;
+    // console.log(a) // hasil yang tampil adalah 2
+    // console.log(window.a) // hasil yang tampil adalah 1
+    
+    a = 2
   }
-
-  tes();
+  
+  tes(); // function dijalankan sehingga nilai a menjadi 2
   // console.log(b); // item luar tidak dapat mengakses nilai dalam function
+  console.log(a)
+  
 
+  // jika variable dalam fucntion tidak dideklarasikan maka akan mencari ke scope yang lebih luar
+  // jika pada scope luar tidak ada maka akan dibuatkan variable pada scope global secara default
+  // "use strict" // mode untuk membatasi pembuatan variable pada scope tertentu secara default
+  
   </script>
 </body>
 </html>

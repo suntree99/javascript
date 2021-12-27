@@ -29,6 +29,14 @@
   // jika jumlah argumen lebih banyak dari parameter, maka kelebihan argumen akan diabaikan
   // jika jumlah parameter lebih banyak dari argumen, maka nilai parameter sisanya akan bernilai undefined
 
+  function cobaVarArgs(a, b, c) {
+    return arguments;
+  }
+
+  var coba = cobaVarArgs(1,2,3,"hi",false);
+  // argumen (juga yang melebihi parameter) akan ditampung dalam arguments
+  console.log(coba);
+
   // psudo parameter : arguments (ada s nya)
   function tambahBanyakAngka() {
     var hasil = 0;
@@ -43,4 +51,3 @@
   </script>
 </body>
 </html>
- 

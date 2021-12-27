@@ -1,4 +1,4 @@
-// contoh penggunaan promt dan alert
+// contoh penggunaan prompt dan alert
 var nama;
 nama = prompt("Masukkan Nama :");
 alert("Nama yang anda masukkan adalah : " + nama);

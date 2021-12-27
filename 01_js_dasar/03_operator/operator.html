@@ -5,16 +5,17 @@
     <title>Operator</title>
   </head>
   <body>
-    <p>Silakan lihat di Console</p>
+    <p>Silakan lihat di Console (Inspect)</p>
 
     <script>
-      //aritmatika//
+      //OPERATOR BINARY
+      //aritmatika ( + - * / % ) //
       console.log(5 + 10);
       console.log(10 % 5); // % adalah operator sisa bagi
       console.log(10 % 3);
       console.log(1 + 2 * 3 - 4); // Urutan KuKaBaTaKu - Kurung Kali Bagi Tambah Kurang
 
-      //penugasan//
+      //penugasan ( = += -= *= /= %= ) //
       var x;
       x = 10;
       console.log(x); // menampilkan nilai x yaitu 10
@@ -61,7 +62,7 @@
       console.log(x < 20); // true
       console.log(!(x < 20)); // false
 
-      //operator string
+      //operator string ( + )
       var a;
       var b;
       a = "apple";
@@ -73,13 +74,15 @@
       console.log(10 + 10 + "10"); // "2010"
       console.log("10" + 10 + 10); //"101010"
 
+      //OPERATOR UNARY
       //typeof(operand)
       console.log(typeof 10); // number (tipe data dari 10)
       console.log(typeof "10"); // string
       console.log(typeof true); // bolean
 
+      //OPERATOR TERNARY
       //kondisional
-      // (kondisi) ? Benar : Salah
+      //(kondisi) ? Benar : Salah
       x = 2;
       console.log(x % 2 == 0 ? "genap" : "ganjil");
     </script>
@@ -98,4 +101,4 @@ operator unary (hanya membutuhkan 1 operand):
   - typeof()
 operator ternary (membutuhkan 3 operand):
   - kondisional 
- -->
+-->
