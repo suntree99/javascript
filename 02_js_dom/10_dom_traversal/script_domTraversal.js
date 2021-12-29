@@ -1,4 +1,4 @@
-// // Event Handler - satu kontak
+// * Event Handler - satu kontak
 // const close = document.querySelector('.close');
 // const card = document.querySelector('.card');
 
@@ -6,7 +6,7 @@
 // 	card.style.display = 'none';
 // });
 
-// // Event Handler - banyak kontak
+// * Event Handler - banyak kontak
 
 // const close = document.querySelectorAll('.close');
 // const card = document.querySelectorAll('.card');
@@ -17,13 +17,15 @@
 // 	});
 // }
 
-// DOM Traversal
+// -------------------------------------------------------------
+
+// * DOM Traversal
 
 const close = document.querySelectorAll('.close');
 
 // for( let i = 0; i < close.length; i++ ) {
 // 	close[i].addEventListener('click', function(e) {
-// 		// close[i].parentElement.style.display = 'none';
+		// * close[i].parentElement.style.display = 'none';
 // 		e.target.parentElement.style.display = 'none';
 // 	});
 // }
@@ -34,15 +36,24 @@ close.forEach(function(el) {
 	});
 });
 
+// -------------------------------------------------------------
+
+// * DOM Traversal Method
+// - parentNode => node
+// - parentElement => elemenet
+// - nextSibling => node
+// - nextElementSibling => elemenet
+// - previousSibling => node
+// - previousElementSibling => elemenet
+
 const nama = document.querySelector('.nama');
 
+console.log(nama.parentNode);
+console.log(nama.parentElement);
 console.log(nama.parentElement.parentElement);
-
-// DOM Traversal Method
-
-// - parentNode
-// - parentElement
-// - nextSibling
-// - nextElementSibling
-// - previousSibling
-// - previousElementSibling
+console.log(nama.nextSibling);
+console.log(nama.nextElementSibling);
+console.log(nama.nextElementSibling.nextElementSibling);
+console.log(nama.previousSibling);
+console.log(nama.previousElementSibling);
+console.log(nama.previousElementSibling.previousElementSibling);

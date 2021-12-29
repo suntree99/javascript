@@ -1,7 +1,7 @@
-const tombol = document.getElementById('tombol');
+const tUbahWarna = document.getElementById('tUbahWarna');
 
-tombol.addEventListener('click', function(){
-  // document.body.style.backgroundColor = 'cyan';
+tUbahWarna.addEventListener('click', function(){
+  // document.body.style.backgroundColor = 'lightblue';
   // document.body.setAttribute('class', 'biru-muda');
   document.body.classList.toggle('biru-muda');
 })
@@ -11,7 +11,7 @@ const teksTombol = document.createTextNode('Acak Warna');
 
 tAcakWarna.appendChild(teksTombol);
 tAcakWarna.setAttribute('type', 'button');
-tombol.after(tAcakWarna);
+tUbahWarna .after(tAcakWarna);
 
 tAcakWarna.addEventListener('click', function() {
     const r = Math.round(Math.random() * 255 + 1);
@@ -19,6 +19,8 @@ tAcakWarna.addEventListener('click', function() {
     const b = Math.round(Math.random() * 255 + 1);
     document.body.style.backgroundColor = 'rgb('+ r +','+ g +','+ b +')';
 });
+
+// -------------------------------------------------------------
 
 const sMerah = document.querySelector('input[name=sMerah]');
 const sHijau = document.querySelector('input[name=sHijau]');
@@ -44,6 +46,8 @@ sBiru.addEventListener('input', function() {
     const b = sBiru.value;
     document.body.style.backgroundColor = 'rgb('+ r +','+ g +','+ b +')';
 });
+
+// -------------------------------------------------------------
 
 document.addEventListener('mousemove', function(event){
     // posisi mouse
