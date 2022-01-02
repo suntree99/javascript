@@ -1,0 +1,23 @@
+[
+    {
+        "nama" : "Budi Darmawan",
+        "nrp" : "0102030405",
+        "email" : "budidarmawan@gmail.com",
+        "jurusan" : "Aeronotika dan Astronotika",
+        "idDosenWali" : 1
+    },
+    {
+        "nama" : "Iwan Setiawan",
+        "nrp" : "0102030406",
+        "email" : "iwansetiawan@gmail.com",
+        "jurusan" : "Teknik Penerbangan",
+        "idDosenWali" : 2
+    },
+    {
+        "nama" : "Wati Susilawati",
+        "nrp" : "0102030407",
+        "email" : "watisusilawati@gmail.com",
+        "jurusan" : "Teknik Informatika",
+        "idDosenWali" : 2
+    }
+]
