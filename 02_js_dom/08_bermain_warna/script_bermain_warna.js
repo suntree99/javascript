@@ -11,7 +11,7 @@ const teksTombol = document.createTextNode('Acak Warna');
 
 tAcakWarna.appendChild(teksTombol);
 tAcakWarna.setAttribute('type', 'button');
-tUbahWarna .after(tAcakWarna);
+tUbahWarna.after(tAcakWarna);
 
 tAcakWarna.addEventListener('click', function() {
     const r = Math.round(Math.random() * 255 + 1);

@@ -1,20 +1,20 @@
-// * DOM Manipulation - Node Manipulation
+// ? DOM MANIPULATION - Node Manipulation
 
-// document.createElement()
-// document.createTextNode()
-// node.appendChild()
-// node.insertBefore()
-// parentNode.removeChild()
-// parentNode.replaceChild()
+// * document.createElement()
+// * document.createTextNode()
+// * node.appendChild()
+// * node.insertBefore()
+// * parentNode.removeChild()
+// * parentNode.replaceChild()
 
-// --- Method Baru ---
+// ? --- Method Baru ---
 
-// parentNode.append()
-// parentNode.prepand()
-// childNode.before()
-// childNode.after()
-// childNode.remove()
-// childNode.replaceWith()
+// * parentNode.append()
+// * parentNode.prepand()
+// * childNode.before()
+// * childNode.after()
+// * childNode.remove()
+// * childNode.replaceWith()
 
 // -------------------------------------------------------------
 
@@ -32,6 +32,7 @@
 	pBaru.appendChild(teksPBaru);
 
 //	tentukan lokasi penempatan (cth: akhir Section A)
+
 	const sectionA = document.getElementById('a');
 
 	// * node.appendChild()
@@ -49,6 +50,7 @@
 	liBaru.appendChild(teksLiBaru);
 
 //	tentukan lokasi penempatan (cth: sebelum item 2, ambil parent dan item setelahnya)
+
 	const ul = document.querySelector('section#b ul');
 	const li2 = ul.querySelector('li:nth-child(2)');
 

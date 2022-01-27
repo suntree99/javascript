@@ -1,4 +1,4 @@
-// membuat Object Angkot
+// ? Membuat Object Angkot
 
 function Angkot(sopir, trayek, penumpang, kas) {
 	this.sopir = sopir;
@@ -30,5 +30,5 @@ function Angkot(sopir, trayek, penumpang, kas) {
 var angkot1 = new Angkot("Budi", ["Cicaheum", "Cibiru"], [], 0);
 var angkot2 = new Angkot("Darmawan", ["Antapani", "Ciroyom"], [], 0)
 
-console.log(angkot1);
-console.log(angkot2);
+console.log(angkot1); // Object { sopir: "Budi", trayek: (2) […], penumpang: [], kas: 0, penumpangNaik: penumpangNaik(namaPenumpang), penumpangTurun: penumpangTurun(namaPenumpang, bayar) }
+console.log(angkot2); // Object { sopir: "Darmawan", trayek: (2) […], penumpang: [], kas: 0, penumpangNaik: penumpangNaik(namaPenumpang), penumpangTurun: penumpangTurun(namaPenumpang, bayar) }

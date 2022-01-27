@@ -1,3 +1,5 @@
+// ? FILTER, MAP, & REDUCE
+
 const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 
 // -------------------------------------------------------------
@@ -17,9 +19,11 @@ const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 // const newAngka = angka.filter(function(a){
 //     return a >= 3;
 // });
-// * ringkan dengan arrow function
-// const newAngka = angka.filter(a => a >= 3);
 // console.log(newAngka);
+
+// * dengan filter() dan arrow function
+const newAngka = angka.filter(a => a >= 3);
+console.log(newAngka);
 
 // -------------------------------------------------------------
 
@@ -47,7 +51,7 @@ const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 
 // * METHOD CHAINING (MENGGABUNGKAN HOF DIATAS)
 // * Cari angka > 5, kalikan 3, jumlahkan
-const hasil = angka.filter(a => a > 5) // 8, 9, 9
-    .map(a => a * 3) // 24, 27, 27
-    .reduce((acc, cur) => acc + cur); // 78
-console.log(hasil);
+// const hasil = angka.filter(a => a > 5) // 8, 9, 9
+//     .map(a => a * 3) // 24, 27, 27
+//     .reduce((acc, cur) => acc + cur); // 78
+// console.log(hasil);

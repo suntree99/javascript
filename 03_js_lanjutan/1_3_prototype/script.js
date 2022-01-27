@@ -1,16 +1,18 @@
+// ? PROTOTYPE
+
 // * 4. Object.create
 // PROBLEM: Tetap membuat object lain (method) untuk mendukung object utama
 // SOLUSI: Prototype (method yang sudah disediakan javascript)
 
 // function Mahasiswa(nama, energi) {
-    // // let mahasiswa = Object.create(methodMahasiswa);
-    // // let this = Object.create(Mahasiswa.prototype);
+//     // let mahasiswa = Object.create(methodMahasiswa); // dengan Function Declaration
+//     // let this = Object.create(Mahasiswa.prototype); // dengan Constructor Function
     
-    // this.nama = nama;
-    // this.energi = energi;
+//     this.nama = nama;
+//     this.energi = energi;
 
-    // // return mahasiswa;
-    // // return this;
+//     // return mahasiswa; // dengan Function Declaration
+//     // return this; // dengan Constructor Function
 // }
 
 // Mahasiswa.prototype.makan = function(porsi) {
@@ -28,12 +30,12 @@
 //         console.log(`Halo ${this.nama}, selamat tidur!`)
 // }; 
 
-// let budi = Mahasiswa('Budi', 10);
-// let darmawan = Mahasiswa('Darmawan', 20);
+// let budi = new Mahasiswa('Budi', 10);
+// let darmawan = new Mahasiswa('Darmawan', 20);
 
 // -------------------------------------------------------------
 
-// * Versi Class (yang dijalankan sebenarnya adalah prototype)
+// * Versi Class -> improvement (yang dijalankan sebenarnya adalah prototype)
 
 class Mahasiswa {
     constructor (nama, energi) {
@@ -57,5 +59,5 @@ class Mahasiswa {
     }
 }
 
-let budi = Mahasiswa('Budi', 10);
-let darmawan = Mahasiswa('Darmawan', 20);
+let budi = new Mahasiswa('Budi', 10);
+let darmawan = new Mahasiswa('Darmawan', 20);

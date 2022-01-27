@@ -1,3 +1,5 @@
+// ? OBJECT
+
 // Array adalah "kumpulan nilai, yang memiliki index"
 // Object adalah "kumpulan nilai, yang memiliki nama"
 // Object adalah "array yang lebih sakti"
@@ -56,8 +58,8 @@ var mahasiswa = {
 	}
 }
 
-console.log(mahasiswa.nama);
-console.log("IPK : " + mahasiswa.IPKumulatif());
+console.log(mahasiswa.nama); // Budi Darmawan
+console.log("IPK : " + mahasiswa.IPKumulatif()); // IPK : 3.034
 
 var orang = {
 	nama : "Budi Darmawan",
@@ -71,7 +73,7 @@ var orang = {
 	}	
 }
 
-console.log(orang.alamat.jalan);
-console.log(orang["alamat"]["kecamatan"]);
-console.log(orang.alamat["kota"]);
-console.log(orang["alamat"].provinsi);
+console.log(orang.alamat.jalan); // Petemon II A No. 42A
+console.log(orang["alamat"]["kecamatan"]); // Sawahan
+console.log(orang.alamat["kota"]); // Surabaya
+console.log(orang["alamat"].provinsi); // Jawa Timur

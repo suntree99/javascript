@@ -8,12 +8,12 @@
     <p>Silakan lihat di Console (Inspect)</p>
 
     <script>
-      console.log("Budi");
-      console.log("Darmawan");
-      console.log("Hari ini adalah hari Jum'at");
-      console.log('Kami akan mengadakan "Gerakan Pungut Sampah"');
-      console.log('"Gerakan Pungut Sampah" akan dilaksanakan  hari Jum\'at'); // menggunakan escape character ( \' atau \" )
-      console.log("\"Gerakan Pungut Sampah\" akan dilaksanakan  hari Jum'at"); // menggunakan escape character ( \' atau \" )
+      console.log("Budi"); // Budi
+      console.log("Darmawan"); // Darmawan
+      console.log("Hari ini adalah hari Jum'at"); // Hari ini adalah hari Jum'at
+      console.log('Kami akan mengadakan "Gerakan Pungut Sampah"'); // Kami akan mengadakan "Gerakan Pungut Sampah"
+      console.log('"Gerakan Pungut Sampah" akan dilaksanakan  hari Jum\'at'); // "Gerakan Pungut Sampah" akan dilaksanakan  hari Jum'at -> menggunakan escape character ( \' atau \" )
+      console.log("\"Gerakan Pungut Sampah\" akan dilaksanakan  hari Jum'at"); // "Gerakan Pungut Sampah" akan dilaksanakan  hari Jum'at -> menggunakan escape character ( \' atau \" )
       // escape character pada string:
       // \0 menampilkan NULL
       // \' menampilkan '
@@ -30,16 +30,18 @@
       // - \u2122 menghasilkan simbol trade mark - TM
       // - dll.
       console.log("Hari ini adalah hari\nJum'at");
-      console.log("Hari ini adalah hari\tJum'at");
-      console.log("Hari ini adalah hari\bJum'at");
-      console.log("\u00A9");
-      console.log("\u2122");
+      // Hari ini adalah hari
+      // Jum'at
+      console.log("Hari ini adalah hari\tJum'at"); // Hari ini adalah hari	Jum'at
+      console.log("Hari ini adalah hari\bJum'at"); // Hari ini adalah hari�Jum'at
+      console.log("\u00A9"); // ©
+      console.log("\u2122"); // ™
       console.log("Budi Darmawan".length); // 13, menghitung jumlah karakter string termasuk karakter spasi
       var nama = "Budi Darmawan";
-      console.log(nama.length);
-      // operatir konkatenasi ( + )
-      console.log("Budi" + "Darmawan");
-      console.log("Budi" + " " + "Darmawan");
+      console.log(nama.length); // 13
+      // operator konkatenasi ( + )
+      console.log("Budi" + "Darmawan"); // BudiDarmawan
+      console.log("Budi" + " " + "Darmawan"); // Budi Darmawan
       // operator perbandingan
       console.log("Budi Darmawawn" == "budi darmawan"); // false, case sensitif
     </script>

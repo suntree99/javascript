@@ -44,9 +44,9 @@ console.log(s);
 // ********
 // *********
 // **********
-var l = 10;
+var t = 10;
 var s = "";
-for (var i  = 0; i < l; i++) {
+for (var i = 0; i < t; i++) {
   for (var j = 0; j <= i; j++) {
     s += "*";
   }
@@ -64,9 +64,9 @@ console.log(s);
 // ***
 // **
 // *
-var l = 10;
+var t = 10;
 var s = "";
-for (var i = l; i > 0; i--) {
+for (var i = t; i > 0; i--) {
   for (var j = 0; j < i; j++) {
     s += "*";
   }
@@ -84,10 +84,10 @@ console.log(s);
 //        ***
 //         **
 //          *
-var l = 10;
+var t = 10;
 var s = "";
-for (var i = 0; i < l; i++) {
-  for (var j = 0; j < l; j++) {
+for (var i = 0; i < t; i++) {
+  for (var j = 0; j < t; j++) {
     if (j < i) {
       s += " ";
     } else {
@@ -117,17 +117,17 @@ console.log(s);
 // ***
 // **
 // *
-var l = 20;
+var t = 20;
 var s = "";
-for (var i = 1; i < l; i++) {
-  if (i <= l/2) {
+for (var i = 1; i < t; i++) {
+  if (i <= t/2) {
     for (var j = 1; j <= i ; j++) {
       s += "*";
     }
     s += "\n";
   }
   else {
-    for (var j = l-1; j >= i; j--) {
+    for (var j = t-1; j >= i; j--) {
       s += "*";
     }
     s += "\n";
@@ -140,11 +140,11 @@ console.log(s);
 //3   *****
 //4  *******
 //5 *********
-var l = 5;
+var t = 5;
 var s = "";
-for (var i = 1; i <= l; i++) {
-  for (var j = 1; j < 2*l; j++) {
-    if (j > (l-i) && j < (l+i) ) {
+for (var i = 1; i <= t; i++) {
+  for (var j = 1; j < 2*t; j++) {
+    if (j > (t-i) && j < (t+i) ) {
       s += "*";
     } else {
       s += " ";
@@ -173,18 +173,18 @@ console.log(s);
 //        *****
 //         ***
 //          *
-var l = 20;
+var t = 20;
 var s = "";
-for (var i = 1; i < l; i++) {
-  for (var j = 1; j < l; j++) {
-    if (i <= l/2) {
-      if (j > (l/2-i) && j < (l/2+i) ) {
+for (var i = 1; i < t; i++) {
+  for (var j = 1; j < t; j++) {
+    if (i <= t/2) {
+      if (j > (t/2-i) && j < (t/2+i) ) {
         s += "*";
       } else {
         s += " ";
       }
     } else {
-        if (j > i-l/2 && j < 3*l/2-i) {
+        if (j > i-t/2 && j < 3*t/2-i) {
           s += "*";
         } else {
           s += " ";
@@ -205,10 +205,10 @@ console.log(s);
 //  # # # # #
 // # # # # #
 //  # # # # #
-var l = 10;
+var t = 10;
 var s = "";
-for (var i = 1; i <= l; i++) {
-  for (var j = 1; j <= l; j++) {
+for (var i = 1; i <= t; i++) {
+  for (var j = 1; j <= t; j++) {
     if (i % 2 == 1) {
       if (j % 2 == 1) {
         s += "#";
@@ -232,8 +232,10 @@ console.log(s);
 //   1 2 1
 //  1 3 3 1
 // 1 4 6 4 1
-var l = 5;
+var t = 5;
 var s = '';
+
+// ? NESTING
 
 function faktorial(n) {
   var a = 1;
@@ -247,9 +249,9 @@ function faktorial(n) {
   return a;
 }
 
-for (var i = 0; i < l; i++) {
+for (var i = 0; i < t; i++) {
 
-  for (var j = l; j >= i; j--) {
+  for (var j = t; j >= i; j--) {
     s += ' ';
   }
   

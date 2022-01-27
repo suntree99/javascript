@@ -1,4 +1,4 @@
-// Konsep this pada Arrow Function
+// ? Konsep THIS pada Arrow Function
 
 // * Constructor Function
 // const Mahasiswa = function() {
@@ -31,13 +31,13 @@
 //     nama: 'Budi',
 //     umur: 33,
 //     sayHello: () => {
-//         console.log(`Halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`);
+//         console.log(`Halo, nama saya ${mhs1.nama}, dan saya ${mhs1.umur} tahun`);
 //     }
 // }
 
 // -------------------------------------------------------------
 
-// * Contoh lagi pada Constructor Function
+// * Contoh setInterval pada Constructor Function
 // const Mahasiswa = function() {
 //     this.nama = 'Budi';
 //     this.umur = 33;

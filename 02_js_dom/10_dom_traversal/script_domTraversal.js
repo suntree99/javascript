@@ -1,4 +1,7 @@
+// ? DOM TRAVERSAL
+
 // * Event Handler - satu kontak
+
 // const close = document.querySelector('.close');
 // const card = document.querySelector('.card');
 
@@ -25,7 +28,7 @@ const close = document.querySelectorAll('.close');
 
 // for( let i = 0; i < close.length; i++ ) {
 // 	close[i].addEventListener('click', function(e) {
-		// * close[i].parentElement.style.display = 'none';
+// 		* close[i].parentElement.style.display = 'none';
 // 		e.target.parentElement.style.display = 'none';
 // 	});
 // }

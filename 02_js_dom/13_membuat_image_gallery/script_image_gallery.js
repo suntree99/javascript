@@ -17,10 +17,9 @@ container.addEventListener('click', function(e) {
 			// if (thumb.classList.contains('active')) {
 			// 	thumb.classList.remove('active');
 			// }
-			thumb.className = 'thumb';
+			thumb.className = 'thumb'; // semua class name ditimpa dengan 'thumb'
 		})
 
-
-		e.target.classList.add('active');
+		e.target.classList.add('active'); // ditambahkan class 'active'
 	}
 })

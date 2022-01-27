@@ -1,4 +1,5 @@
-// * Stop Propagation (untuk menghentikan event bubbling)
+// ? STOP PROPAGATION
+// * Untuk menghentikan event bubbling
 
 // const close = document.querySelectorAll('.close');
 
@@ -9,7 +10,8 @@
 // 	});
 // });
 
-// * Event Bubling
+// ? EVENT BUBLING
+// * Jika element yang diberikan event memiliki child maka child nya akan mendapat event yang sama, sehingga eventnya akan bertumpuk
 
 // const cards = document.querySelectorAll('.card');
 
@@ -19,7 +21,7 @@
 // 	})
 // })
 
-// * Cara Lebih Efektif
+// ? Cara Lebih Efektif
 
 const container = document.querySelector('.container');
 

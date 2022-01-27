@@ -66,14 +66,14 @@ while ( tanya ) {
 
 		// tampilkan hasilnya
 
-    if (kesempatan > 0 && angka != comp) {
-      alert("Kamu memilih : " + angka + "\nTebakan kamu : " + hasil + "\n\nAyo masih ada " + kesempatan + " kesempatan lagi.");
-    } else if (kesempatan > 0 && angka == comp) {
-	    alert("Kamu memilih : " + angka + "\n\nSELAMAT!!!\nTebakan kamu : " + hasil);
-    } else {
-      alert("Kamu memilih : " + angka + "\nTebakan kamu : " + hasil + "\n\nKesempatan kamu sudah habis.");
-    }
-  }
+		if (kesempatan > 0 && angka != comp) {
+			alert("Kamu memilih : " + angka + "\nTebakan kamu : " + hasil + "\n\nAyo masih ada " + kesempatan + " kesempatan lagi.");
+		} else if (kesempatan > 0 && angka == comp) {
+			alert("Kamu memilih : " + angka + "\n\nSELAMAT!!!\nTebakan kamu : " + hasil);
+		} else {
+		alert("Kamu memilih : " + angka + "\nTebakan kamu : " + hasil + "\n\nKesempatan kamu sudah habis.");
+		}
+	}
 	tanya = confirm("Main lagi?");
 }
 

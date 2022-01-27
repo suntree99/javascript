@@ -5,6 +5,7 @@
   <title>Parameter dan Argumen</title>
 </head>
 <body>
+  <p>Silakan lihat di Console (Inspect)</p>
 
   <script>
     
@@ -35,7 +36,7 @@
 
   var coba = cobaVarArgs(1,2,3,"hi",false);
   // argumen (juga yang melebihi parameter) akan ditampung dalam arguments
-  console.log(coba);
+  console.log(coba); // Arguments { 0: 1, 1: 2, 2: 3, 3: "hi", 4: false, … }
 
   // psudo parameter : arguments (ada s nya)
   function tambahBanyakAngka() {
@@ -46,7 +47,7 @@
     return hasil
   }
   var coba = tambahBanyakAngka (1,2,3,4,5);
-  console.log(coba);
+  console.log(coba); // 15
 
   </script>
 </body>

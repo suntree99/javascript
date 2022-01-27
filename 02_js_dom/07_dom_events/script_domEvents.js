@@ -1,6 +1,6 @@
-// * Event Handler
+// ? EVENTS HANDLER
 
-// * Inline HTML (Tidak disarankan)
+// * Inline HTML Event (Tidak disarankan)
 // const p3 = document.querySelector('.p3');
 
 // function ubahWarnaP3() {
@@ -40,12 +40,12 @@ const p3 = document.querySelector('.p3');
 // }
 
 // * addEventListener akan menambahkan perintah baru
-// p3.addEventListener('click', function() {
-//     p3.style.backgroundColor = 'lightblue';
-// });
-// p3.addEventListener('click', function() {
-//     p3.style.color = 'red';
-// });
+p3.addEventListener('click', function() {
+    p3.style.backgroundColor = 'lightblue';
+});
+p3.addEventListener('click', function() {
+    p3.style.color = 'red';
+});
 
 p3.addEventListener('mouseenter', function() {
     p3.style.backgroundColor = 'lightblue';

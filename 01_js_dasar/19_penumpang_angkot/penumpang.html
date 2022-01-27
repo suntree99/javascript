@@ -6,7 +6,48 @@
   <script src="penumpang.js"></script>
 </head>
 <body>
-  
+  <p>Silakan coba di Console (Inspect)</p>
+
+  <p>Pengelolaan Penumpang :</p>
+  <ul>
+    <li>Penumpang Naik, function yang digunakan adalah <b><i>tambahPenumpang()</i></b>
+      <ul>
+        <li>2 parameter
+          <ul>
+            <li>nama penumpang</li>
+            <li>array penumpang, isi dengan <b>'penumpang'</b></li>
+          </ul>
+        </li>
+        <li>rules :
+          <ul>
+            <li>jika angkot kosong, penumpang naik di kursi pertama</li>
+            <li>penumpang berikutnya duduk di kursi selanjutnya secara berurutan</li>
+            <li>jika ada kursi kosong (karena penumpang turun), penumpang yang naik berikutnya duduk di kursi kosong terlebih dahulu</li>
+            <li>asumsi kursi tidak akan penuh dan akan bertamhan terus jika ada penumpang naik</li>
+            <li>nama penumpang tidak boleh sama, untuk menghindari kebingungan ketika nanti penupang turun</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Penumpang Turun, function yang digunakan adalah <b><i>hapusPenumpang()</i></b>
+      <ul>
+        <li>2 parameter
+          <ul>
+            <li>nama penumpang</li>
+            <li>array penumpang, isi dengan <b>'penumpang'</b></li>
+          </ul>
+        </li>
+        <li>rules :
+          <ul>
+            <li>jika angkot kosong, tampilkan pesan angkot kosong</li>
+            <li>jika nama penumpang ada di dalam angkot, hapus penumpang dan isi dengan <i>undefined</i></li>
+            <li>jika nama penumpang tidak ada di dalam angkot, tampilkan pesan nama penumpang tidak ada dalam angkot</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
 </body>
 </html>
 
@@ -32,4 +73,4 @@ Pengelolaan Penumpang :
       * jika angkot kosong, tampilkan pesan angkot kosong
       * jika nama penumpang ada di dalam angkot, hapus penumpang dan isi dengan undefined
       * jika nama penumpang tidak ada di dalam angkot, tampilkan pesan nama penumpang tidak ada dalam angkot
- -->
+-->

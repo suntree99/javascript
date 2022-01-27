@@ -1,7 +1,7 @@
-// CLOSURE
+// ? CLOSURE
 
 // function init() {
-//     return function (nama) {
+//     return function(nama) {
 //         console.log(nama);
 //     }
 // }

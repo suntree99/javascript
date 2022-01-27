@@ -10,24 +10,24 @@
     <script>
       //pada dasarnya tidak ada bialngan integer di javascript yang ada hanyalah floating point 2^64
       //angka tanpa desimal (bilangan bulat)//
-      console.log(10);
-      console.log(2000);
-      console.log(123456);
-      console.log(999999999999999); // maksimal akurasi 15 digit //
+      console.log(10); // 10
+      console.log(2000); // 2000
+      console.log(123456); // 123456
+      console.log(999999999999999); // 999999999999999 -> maksimal akurasi 15 digit //
       console.log(9999999999999999); // hasilnya: 10000000000000000 //
       //angka dengan desimal//
       console.log(3.14); // koma ditulis titik, akurasi maksimal 17 digit di belakang koma //
-      console.log(0.5);
-      console.log(100.0);
-      console.log(0.3 + 0.7);
+      console.log(0.5); // 0.5
+      console.log(100.0); // 100
+      console.log(0.3 + 0.7); // 1
       console.log(0.2 + 0.1); // hasilnya: 0.30000000000000004 (hati-hati menjumlahkan bilangan pecahan, hasilnya tidak terlalu akurat) //
       //eksponen//
       console.log(123e5); // hasilnya: 12300000 //
       console.log(123e-5); // hasilnya: 0.00123 //
       //bilangan negatif//
       //1 bit untuk tanda (sign), 11 bit untuk eksponen, 52 bit untuk angka sebenarnya//
-      console.log(-25);
-      console.log(-3.14);
+      console.log(-25); // -25
+      console.log(-3.14); // -3.14
       //jangan mengawali angka dengan 0 dan 0xFF//
       console.log(022); // hasilnya: 18 (komputer menganggap ini bilangan oktal (0-7) - bilangan berbasis 8) //
       console.log(0xff); // hasilnya: 255 (komputer menganggap ini bilangan hexadesimal (0-9 & a-f) - bilangan basis 16) //

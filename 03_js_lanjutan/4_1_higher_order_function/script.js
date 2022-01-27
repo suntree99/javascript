@@ -1,4 +1,4 @@
-// * CONTOH-CONTOH HIGHER ORDER FUNCTION
+// ? HIGHER ORDER FUNCTION
 
 // -------------------------------------------------------------
 
@@ -41,35 +41,36 @@
 // }
 
 // let selamatMalam = ucapkanSalam('Malam');
-// console.dir(selamatMalam('Budi'));
+// console.dir(selamatMalam('Budi')); // Halo Budi, Selamat Malam, semoga harimu menyenangkan!
 
 // -------------------------------------------------------------
 
-// * KENAPA MENGGUNAKAN HOF
-// * memisahkan kerumitan kode kedalam function
+// ? KENAPA MENGGUNAKAN HOF
+// ? memisahkan kerumitan kode ke dalam function
 
 // -------------------------------------------------------------
 
+// * for dengan batas tertentu
 // for (let i = 0; i < 10; i++) {
 //     console.log(i)
 // }
 
+// * batas for dapat lebih fleksible dengan dimasukkan ke dalam function
 // function repeatLog(n) {
 //     for (let i = 0; i < n; i++) {
 //         console.log(i)
 //     }
-
 // }
 
 // repeatLog(10);
 
 // -------------------------------------------------------------
 
+// * penambahan action pada function
 // function repeatLog(n, action) {
 //     for (let i = 0; i < n; i++) {
 //         action(i);
 //     }
-    
 // }
 
 // repeatLog(10, console.log);
@@ -78,6 +79,6 @@
 // -------------------------------------------------------------
 
 // * CONTOH HOF YANG SUDAH ADA
-// Array.prototype.map()
-// Array.prototype.filter()
-// Array.prototype.reduce()
+// ? Array.prototype.map()
+// ? Array.prototype.filter()
+// ? Array.prototype.reduce()

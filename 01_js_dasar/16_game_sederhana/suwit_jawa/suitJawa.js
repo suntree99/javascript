@@ -19,7 +19,7 @@ while( tanya ){
 	}
 	console.log(comp);
 
-	var hasil = ""
+	var hasil = "";
 
 	// menentukan rules
 
@@ -35,9 +35,9 @@ while( tanya ){
 	} else if ( p == "orang") {
 		hasil = ( comp == "gajah" ) ? "KALAH" : "MENANG";
 	} else if ( p == "semut" ) {
-		hasil = ( comp == "gajah" ) ? "KALAH" : "MENANG";
+		hasil = ( comp == "gajah" ) ? "MENANG" : "KALAH";
 	} else {
-		hasil = "memasukkan pilihan yang salah!!";
+		hasil = "memasukkan pilihan yang tidak valid!!";
 	}
 
 	// tampilkan hasilnya

@@ -1,3 +1,5 @@
+// ? SWITCH
+
 // var angka = parseInt(prompt("Masukkan angka :"))
 
 // switch (angka) {

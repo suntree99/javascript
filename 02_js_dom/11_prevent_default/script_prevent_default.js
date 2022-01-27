@@ -1,4 +1,5 @@
-// * Prevent Default
+// ? PREVENT DEFAULT
+// * Secara default tag a akan merefresh halaman kembali ke semula saat diklik, untuk menghetikannya digunakan prevent default
 
 const close = document.querySelectorAll('.close');
 

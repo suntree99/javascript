@@ -1,3 +1,5 @@
+// ? IF ELSE
+
 var angka = prompt("Masukkan angka :");
 
 if(angka < 5) {

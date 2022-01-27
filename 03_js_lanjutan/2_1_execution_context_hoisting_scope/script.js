@@ -1,18 +1,18 @@
-// EXECUTION CONTEXT, HOSITING, & SCOPE
+// ? EXECUTION CONTEXT, HOSITING, & SCOPE
 
 // * Creation phase (fase pembentukan) pada global context
-// nama var = undefined
-// nama function = fn()
-// windows = global object
-// this = window
-// hoisting (mengerek) pembuatan 4 hal diatas walaupun ditulis dibawah
+// ? nama var = undefined
+// ? nama function = fn()
+// ? windows = global object
+// ? this = window
+// ? hoisting (mengerek) pembuatan 4 hal diatas walaupun ditulis dibawah
 
-// console.log(nama);
+// console.log(nama); // undefined
 // var nama = 'Budi'
 
 // * Execution phase (fase eksekusi)
 
-// console.log(sayHello());
+// console.log(sayHello()); // Halo, nama saya undefined, saya undefined tahun
 
 // var nama = "Darmawan";
 // var umur = 33;
@@ -23,22 +23,22 @@
 
 // -------------------------------------------------------------
 
-// * function memmbuat Local Execution Context
-// yang di dalamnya terdapat creationd dan execution context
-// window
-// arguments
-// hoisting
+// * Function membuat Local Execution Context
+// ? yang di dalamnya terdapat creation dan execution context
+// ? window
+// ? arguments
+// ? hoisting
 
 // var nama = 'Budi Darmawan';
 // var username = '@budidarmawan';
 
 // function cetakURL() {
-//     console.log(arguments);
+//     console.log(arguments); // Arguments { 0: "@darmawan", 1: "@budi", … }
 //     var instagramURL = 'http://instagram.com/';
 //     return instagramURL + username;
 // }
 
-// console.log(cetakURL('@darmawan', '@budi'));
+// console.log(cetakURL('@darmawan', '@budi')); // http://instagram.com/@budidarmawan
 
 // -------------------------------------------------------------
 
@@ -62,17 +62,17 @@
 
 // -------------------------------------------------------------
 
-function satu() {
-    var nama = "Budi"
-    console.log(nama);
-}
+// function satu() {
+//     var nama = "Budi"
+//     console.log(nama);
+// }
 
-function dua() {
-    console.log(nama);
-}
+// function dua() {
+//     console.log(nama);
+// }
 
-console.log(nama);
-var nama = 'Darmawan'
-satu();
-dua('dodol');
-console.log(nama);
+// console.log(nama);
+// var nama = 'Darmawan'
+// satu();
+// dua('dodol');
+// console.log(nama);

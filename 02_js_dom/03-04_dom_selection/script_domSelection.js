@@ -1,10 +1,10 @@
-// * DOM Selection Method
+// ? DOM Selection Method
 
-// getElementById() => element
-// getElementsByTagName() => HTMLCollection
-// getElementsByClassName() => HTMLCollection
-// querySelector() => element
-// querySelectorAll() => nodeList
+// * getElementById() => element
+// * getElementsByTagName() => HTMLCollection (Array)
+// * getElementsByClassName() => HTMLCollection (Array)
+// * querySelector() => element (mentarget 1 element yang pertama)
+// * querySelectorAll() => nodeList (Array)
 
 // -------------------------------------------------------------
 
@@ -22,14 +22,14 @@
 //     p[i].style.backgroundColor = 'lightblue';
 // }
 
-// const h1 = document.getElementsByTagName('h1')[0]; // harus ditambah index walaupun hanya satu element
+// const h1 = document.getElementsByTagName('h1')[0]; // harus ditambah index walaupun hanya satu element karena HTMLCollection bentuknya array
 // h1.style.fontSize = '50px';
 
 // -------------------------------------------------------------
 
 // * getElementsByClassName() => HTMLCollection
 // const p1 = document.getElementsByClassName('p1');
-// p1[0].innerHTML = 'ini diubah dari javascript';
+// p1[0].innerHTML = 'ini diubah dari javascript'; // harus ditambah index walaupun hanya satu element karena HTMLCollection bentuknya array
 
 // -------------------------------------------------------------
 

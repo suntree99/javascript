@@ -1,3 +1,5 @@
+// ? ELSE IF
+
 var angka = prompt("Masukkan angka :");
 
 if (angka % 2 == 0) {

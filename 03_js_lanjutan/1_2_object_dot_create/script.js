@@ -1,3 +1,4 @@
+// ? OBJECT.CREATE
 // * Cara untuk membuat Object pada javascript
 
 // -------------------------------------------------------------

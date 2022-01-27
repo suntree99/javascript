@@ -1,4 +1,5 @@
-// * Cara untuk membuat Object pada javascript
+// ? OBJECT
+// * Cara untuk membuat Object pada javascript :
 
 // -------------------------------------------------------------
 

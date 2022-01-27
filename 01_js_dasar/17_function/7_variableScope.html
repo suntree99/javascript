@@ -5,7 +5,8 @@
   <title>Variable Scope</title>
 </head>
 <body>
-
+  <p>Silakan lihat di Console (Inspect)</p>
+  
   <script>
 
   // block scope vs function scope
@@ -13,7 +14,7 @@
   // block scope (pada C++)
   // int i = 2;
 
-  // if (1%2==0) {
+  // if (i%2==0) {
   //   bool genap = true;
   // }
 
@@ -42,19 +43,19 @@
   
   function tes() {
     var b = 2;
-    console.log(a); // item dalam dapat mengakses nilai luar
+    console.log(a); // 1 -> item dalam dapat mengakses nilai luar
     
     // name conflict
     // var a = 2;
-    // console.log(a) // hasil yang tampil adalah 2
-    // console.log(window.a) // hasil yang tampil adalah 1
+    // console.log(a) // 2 -> mengambil nilai a di dalam function
+    // console.log(window.a) // 1 -> mengambil nilai a dari window
     
     a = 2
   }
   
-  tes(); // function dijalankan sehingga nilai a menjadi 2
-  // console.log(b); // item luar tidak dapat mengakses nilai dalam function
-  console.log(a)
+  tes(); // function dijalankan -> nilai a yang (dideklarasikan) di luar diubah menjadi 2
+  // console.log(b); // error -> item luar tidak dapat mengakses nilai dalam function
+  console.log(a) // 2
   
 
   // jika variable dalam fucntion tidak dideklarasikan maka akan mencari ke scope yang lebih luar

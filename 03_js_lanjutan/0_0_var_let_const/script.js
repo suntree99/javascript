@@ -1,3 +1,5 @@
+// ? VAR, LET, & CONST
+
 // * Let & Const memberikan error yang seharusnya, sedangkan Var tidak
 
 // console.log(i);
@@ -16,7 +18,7 @@
 // for(var i = 0; i < 10; i++) {
 //     console.log(i)
 // }
-// console.log(i);
+// console.log(i); // Jika bukan function, data masih dapat diakses
 
 // function tes() {
 //     for(var i = 0; i < 10; i++) {
@@ -24,7 +26,7 @@
 //     }
 // }
 // tes();
-// console.log(i);
+// console.log(i); // Tidak dapat mengakses data di dalam function
 
 // -------------------------------------------------------------
 
@@ -36,7 +38,7 @@
 //         console.log(i)
 //     }
 // }())
-// console.log(i);
+// console.log(i); // Tidak dapat mengakses data di dalam function
 
 // -------------------------------------------------------------
 
@@ -45,31 +47,31 @@
 // for(let i = 0; i < 10; i++) {
 //     console.log(i)
 // }
-// console.log(i);
+// console.log(i); // Tidak dapat mengakses data di dalam block
 
 // -------------------------------------------------------------
 
 // * Const (Konstanta) untuk meminimalisir perubahan state
 
-// const i = 10;
-//// i = 15;
-// console.log(i);
-
-// const mhs = {
-//     nama: 'Budi Darmawan',
-//     umur: 33
-// }
-
-// mhs.umur = 35; // properti object masih bisa diubah, object mhs tidak
-
-//// mhs = {
-////    jurusan: 'Teknik Informatika'
-//// }
-
-// console.log(mhs);
-
-const i = [1,2,3];
-i.push(4); // konten array bisa diubah, arraynya tidak
-//// i = [1,2,3,4]
-
+const i = 10;
+// value const tidak dapat diubah
+// ! i = 15;
 console.log(i);
+
+const mhs = {
+    nama: 'Budi Darmawan',
+    umur: 33
+}
+
+mhs.umur = 35; // properti object const masih bisa diubah, objectnya (mhs) tidak dapat diubah
+// ! mhs = {
+// !    jurusan: 'Teknik Informatika'
+// ! }
+
+console.log(mhs);
+
+const arr = [1,2,3];
+arr.push(4); // isi const array masih bisa diubah, arraynya (arr) tidak dapat diubah
+// ! arr = [1,2,3,4]
+
+console.log(arr);

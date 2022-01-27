@@ -1,3 +1,5 @@
+// ? WHILE
+
 // dihentikan oleh user
 var ulang = true;
 while (ulang) {

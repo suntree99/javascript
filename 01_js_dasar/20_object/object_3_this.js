@@ -1,4 +1,4 @@
-// * Ingat Cara Membuat Object
+// ? Ingat Cara Membuat Object
 
 // * Cara 1 - Object Literal
 // var obj = {};
@@ -26,9 +26,9 @@
 
 // _______________________________________________________________________
 
-// * This
+// ? THIS
 
-// this adalah window pada objek global
+// ? this adalah window pada objek global
 // console.log(this);
 
 // var a = 10;
@@ -43,30 +43,26 @@
 // 	console.log("Halo");
 // }
 
-// obj.halo();
-// * this pada object literal mengembalikan pada objecty yang bersangkutan
+// obj.halo(); // ? this pada object literal mengembalikan pada object yang bersangkutan
 
 
-// * Cara 2 - Function declaration
+// * Cara 2 - Function Declaration
 
 // function halo() {
 // 	console.log(this);
 // 	console.log("Halo");
 // }
 
-// this.halo();
-// * this pada function declaration mengembalikan pada object global
+// this.halo(); // ? this pada function declaration mengembalikan pada object global
 
 
 // * Cara 3 - Constructor Function (keyword : new)
 
 function Halo() {
-	console.log(this);
-	console.log("Halo");
+	console.log(this); // Object {  }
+	console.log("Halo"); // Halo
 }
 
 new Halo();
-
 var obj1 = new Halo();
-var obj2 = new Halo();
-// * this pada constructor function mengembalikan object yang baru dibuat
+var obj2 = new Halo(); // ? this pada constructor function mengembalikan object yang baru dibuat
