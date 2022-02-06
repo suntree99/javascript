@@ -1,11 +1,11 @@
-// * Rest Parameter
+// ? REST PARAMETER
 
 // * menangkap arguments menjadi array
 // function myFunc(a, b, ...myArgs) {
     // return `a = ${a}, b = ${b}, myArgs = ${myArgs}`;
-    // return myArgs;
-    // return Array.from(arguments);
-    // return [...arguments]
+    // return myArgs; // arguments sisa
+    // return Array.from(arguments); // seluruh arguments
+    // return [...arguments] // seluruh arguments
 // }
 
 // console.log(myFunc(1, 2, 3, 4, 5,));

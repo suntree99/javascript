@@ -4,7 +4,7 @@ const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 
 // -------------------------------------------------------------
 
-// * MENCARI ANGKA >= 3
+// ? Mencari angka >= 3
 
 // * dengan for
 // const newAngka = [];
@@ -21,37 +21,39 @@ const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 // });
 // console.log(newAngka);
 
-// * dengan filter() dan arrow function
-const newAngka = angka.filter(a => a >= 3);
-console.log(newAngka);
+// * dengan filter() + arrow function
+// const newAngka = angka.filter(a => a >= 3);
+// console.log(newAngka);
 
 // -------------------------------------------------------------
 
-// * MENGALIKAN 2 SETIAP ANGKA
+// ? Mengalikan 2 untuk setiap angka
 
 // * dengan map()
 // const newAngka = angka.map(function(a){
 //     return a*2;
 // })
-// * ringkan dengan arrow function
+// console.log(newAngka);
+
+// * dengan map() + arrow function
 // const newAngka = angka.map(a => a * 2);
 // console.log(newAngka);
 
 // -------------------------------------------------------------
 
-// * MENJUMLAHKAN SELURUH ELEMENT ARRAY
+// ? Menjumlahkan seluruh element array
 // * (5) + -1 + 8 + 9 + 1 + 4 + -5 + -4 + 3 + 2 + 9
 
-// * dengan reduce()
+// ? dengan reduce()
 // * reduce((accumulator, currentValue) => accumulator + currentValue, nilaiAwal); // default nilai awal = 0 jika tidak ditulis
 // const newAngka = angka.reduce((accumulator, currentValue) => accumulator + currentValue, 5);
 // console.log(newAngka);
 
 // -------------------------------------------------------------
 
-// * METHOD CHAINING (MENGGABUNGKAN HOF DIATAS)
+// ? METHOD CHAINING (Menggabungkan HOF di atas)
 // * Cari angka > 5, kalikan 3, jumlahkan
-// const hasil = angka.filter(a => a > 5) // 8, 9, 9
-//     .map(a => a * 3) // 24, 27, 27
-//     .reduce((acc, cur) => acc + cur); // 78
-// console.log(hasil);
+const hasil = angka.filter(a => a > 5) // 8, 9, 9
+    .map(a => a * 3) // 24, 27, 27
+    .reduce((acc, cur) => acc + cur); // 78
+console.log(hasil);

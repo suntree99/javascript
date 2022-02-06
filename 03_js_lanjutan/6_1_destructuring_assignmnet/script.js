@@ -1,6 +1,6 @@
-// * Destructuring Assigment / Destructuring Variable
+// ? Destructuring Assigment / Destructuring Variable
 
-// * PADA ARAY
+// ? PADA ARAY
 // const coba = ['satu', 'dua', 'tiga'];
 
 // const [a, b, c,] = coba;
@@ -31,7 +31,7 @@ const perkenalan = ['Halo', 'nama', 'saya', 'Budi Darmawan'];
 // console.log(a)
 // console.log(b)
 
-// * PADA OBJECT
+// ? PADA OBJECT
 // const mhs = {
 //     nama: 'Budi Darmawan',
 //     umur: 33,

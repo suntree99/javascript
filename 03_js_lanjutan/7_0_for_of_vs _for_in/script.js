@@ -1,6 +1,6 @@
-// * for..of
+// ? for..of
 
-// * PADA ARRAY
+// ? PADA ARRAY
 // const mhs = ['Budi', 'Iwan', 'Wati'];
 
 // * dengan for
@@ -27,13 +27,13 @@
 // };
 
 
-// * PADA STRING
+// ? PADA STRING
 // const nama = 'Darmawan';
 // for (const n of nama) {
 //     console.log(n);
 // }
 
-// * PADA NODELIST
+// ? PADA NODELIST
 // const liNama = document.querySelectorAll('.nama');
 
 // liNama.forEach(n => console.log(n.textContent));
@@ -42,7 +42,7 @@
 //     console.log(n.textContent);
 // };
 
-// * PADA ARGUMENTS
+// ? PADA ARGUMENTS
 // function jumlahAngka() {
 //     // return arguments.reduce((a, i) => a + i); // tidak bisa karena arguments bukan array
 //     // arguments.forEach(a => jumlah += a); // tidak bisa karena arguments bukan array

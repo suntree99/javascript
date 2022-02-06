@@ -1,6 +1,6 @@
-// * Callback
+// ? CALLBACK
 
-// * Synchronous Callback
+// ? Synchronous Callback
 // function halo(nama) {
 //     alert(`Halo, ${nama}`)
 // }
@@ -43,14 +43,14 @@
 // mhs.forEach(m => {
 //     for (let i = 0; i < 10000000; i++) {
 //         let date = new Date();
-//     }
+//     } // simulasi jeda loading data
 //     console.log(m.nama)
 // });
 // console.log('selesai');
 
 // -------------------------------------------------------------
 
-// * Asynchronous Callback
+// ? Asynchronous Callback
 
 // * cara vanilla javascript
 // function getDataMahasiswa(url, success, error) {
@@ -71,12 +71,14 @@
 // }
 
 // console.log('mulai');
-// getDataMahasiswa('data/mahasiswa.json', result => {
-//     const mhs = JSON.parse(result);
-//     mhs.forEach(m => console.log(m.nama))
-// }, e => {
-//     console.log(e.responseText)
-// });
+// getDataMahasiswa(
+//     'data/mahasiswa.json',
+//     result => {
+//         const mhs = JSON.parse(result);
+//         mhs.forEach(m => console.log(m.nama))},
+//     e => {
+//         console.log(e.responseText)}
+// );
 // console.log('selesai');
 
 // -------------------------------------------------------------

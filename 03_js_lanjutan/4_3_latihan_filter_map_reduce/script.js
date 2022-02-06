@@ -1,6 +1,7 @@
 // ambil semua elemen video
 const videos = Array.from(document.querySelectorAll('[data-duration]'));
 
+console.log(videos);
 // pilih hanya yang 'JAVASCRIPT LANJUTAN'
 const jsLanjut = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN'))
 
