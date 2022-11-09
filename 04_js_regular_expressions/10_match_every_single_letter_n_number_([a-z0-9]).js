@@ -1,7 +1,7 @@
 //? Match Numbers and Letters of the Alphabet
 
 let jennyStr = "Jenny8675309";
-let myRegex = /[a-z0-9]/ig;
+let myRegex = /[a-z0-9]/ig; // mencari karakter didalam range [] secara global dan ignore case
 console.log(jennyStr.match(myRegex));
 // [
 //     'J', 'e', 'n', 'n',

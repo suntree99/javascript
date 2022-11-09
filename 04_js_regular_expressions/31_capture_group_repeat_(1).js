@@ -1,7 +1,7 @@
 //? Reuse Patterns Using Capture Groups
 
 let repeatStr = "row row row your boat";
-let repeatRegex = /(\w+) \1 \1/;
+let repeatRegex = /(\w+) \1 \1/; // mencari perulangan dengan patern () dipanggil dengan \1 
 console.log(repeatRegex.test(repeatStr)); // true
 console.log(repeatStr.match(repeatRegex)); // ["row row row", "row"]
 

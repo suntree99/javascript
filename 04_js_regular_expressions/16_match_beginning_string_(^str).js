@@ -1,7 +1,7 @@
 //? Match Beginning String Patterns
 
 let firstString = "Ricky is first and can be found.";
-let firstRegex = /^Ricky/;
+let firstRegex = /^Ricky/; // ^ pada regex mengharuskan kata ada di depan
 console.log(firstRegex.test(firstString)); // true
 let notFirst = "You can't find Ricky now.";
 console.log(firstRegex.test(notFirst)); // false

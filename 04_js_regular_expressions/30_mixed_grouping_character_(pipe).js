@@ -1,7 +1,7 @@
-//? Check For Mixed Grouping of Characters
+//? Check For Mixed Grouping of Characters (|)
 
 let testStr = "Pumpkin";
-let testRegex = /P(engu|umpk)in/;
+let testRegex = /P(engu|umpk)in/; // alternatif pencarian dengan template kata dalam ()
 console.log(testRegex.test(testStr)); // true
 
 let myString = "Eleanor Roosevelt";

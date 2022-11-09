@@ -1,1453 +1,536 @@
-# GO Lang
+# Regular Expression
 
-## Installation
-- Download dan install GO compiler di https://go.dev/
-- Cek status instalasi di cmd : `go version`
+## How to Run JavaScript in VS Code
+* Install Code Runner extention
+* Right click on file -> Run Code
 
-Pengaturan GOPATH dan GOROOT
-- Buka Environment Variables
-- Pada User Variables, buat GOPATH mengacu pada alamat workspace
-- Pada System Variables, buat GOROOT mengacu pada alamat instalasi
-- Cek go environment di cmd : `go env`
-- Matikan daluhu Go Module (jika belum digunakan) : `go env -w GO111MODULE="off"`
+## 01. Using the Test Method (.test())
+```js
+// test() : mencari jarum di tumpukan jerami -> Output : Boolean
+let testStr = "freeCodeCamp"; // jerami
+let testRegex = /Code/; // jarum
+console.log(testRegex.test(testStr)); // true
 
-## Basic Command
-Untuk melakukan build atau compile code gunakan perintah dibawah ini
-```go
-go build namaFile.go
+let myString = "Hello, World!";
+let myRegex = /Hello/; // regex diapit 2 slash
+let result = myRegex.test(myString);
+
+console.log(result); // true
 ```
 
-Untuk melakukan run code (testing) tanpa melakukan build gunakan perintah dibawah ini
-```go
-go run namaFile.go
+## 02. Match Literal Strings
+```js
+let testStr = "Hello, my name is Kevin.";
+let testRegex = /Kevin/; 
+console.log(testRegex.test(testStr)); // true
+
+let wrongRegex = /kevin/; // regex memperhatikan besar kecilnya huruf
+console.log(wrongRegex.test(testStr)); // false
+
+let waldoIsHiding = "Somewhere Waldo is hiding in this text.";
+let waldoRegex = /Waldo/;
+let result = waldoRegex.test(waldoIsHiding);
+
+console.log(result); // true
 ```
 
-## Hello World (Basic Structure)
-```go
-package main
+## 03. Match a Literal String with Different Possibilities
+```js
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird|fish/; // | memberikan alternatif pencarian
+let result = petRegex.test(petString);
 
-import "fmt"
-
-func main() {
-
-	fmt.Println("Hello World")
-
-}
+console.log(result); // true
 ```
 
-## Data Type
-- String
-```go
-	fmt.Println("Budi Darmawan") // Budi Darmawan
-	fmt.Println(len("Budi Darmawan")) // 13
-	fmt.Println("Budi Darmawan"[0]) // 66 (angka ASCII dari B)
-```
-- Number
-```go
-	fmt.Println("Integer =", 1) // Integer =  1
-	fmt.Println("Float =", 3.5) // Float =  3.5
-```
-- Boolean
-```go
-	fmt.Println("Benar =", true) // Benar = true
-	fmt.Println("Salah =", false) // Salah = false
+## 04. Ignore Case While Matching
+```js
+let myString = "freeCodeCamp";
+let fccRegex = /freecodecamp/i; // i (ignore) tidak memperhatikan besar kecilnya huruf
+let result = fccRegex.test(myString);
+
+console.log(result); // true
 ```
 
-## Variable
-```go
-	var name string
-	name = "Budi Darmawan"
-	fmt.Println(name) // Budi Darmawan
-	
-	var age = 30
-	fmt.Println(age) // 30
+## 05. Extract Matches (.match())
+```js
+// match() : di tumpukan jerami yang cocok dengan jarum -> Output : Object in Array
+console.log("Hello, World!".match(/Hello/)); // [ 'Hello', index: 0, input: 'Hello, World!', groups: undefined ]
 
-	country := "Indonesia"
-	fmt.Println(country) // Indonesia
+let ourStr = "Regular expressions";
+let ourRegex = /expressions/;
+console.log(ourStr.match(ourRegex)); // [ 'expressions', index: 8, input: 'Regular expressions', groups: undefined ]
 
-	var (
-		firstName = "Budi"
-		lastName = "Darmawan"
-	)
-	fmt.Println(firstName) // Budi
-	fmt.Println(lastName) // Darmawan
+/regex/.test('string'); // mencari jarum di tumpukan jerami
+'string'.match(/regex/); // di tumpukan jerami yang cocok dengan jarum
+
+let extractStr = "Extract the word 'coding' from this string.";
+let codingRegex = /coding/; // Change this line
+let result = extractStr.match(codingRegex); // Change this line
+
+console.log(result); // [ 'coding', index: 18, input: "Extract the word 'coding' from this string.", groups: undefined ]
 ```
 
-## Constant
-```go
-	const value = 1000
+## 06. Find More Than the First Match
+```js
+let testStr = "Repeat, Repeat, Repeat";
+let ourRegex = /Repeat/;
+console.log(testStr.match(ourRegex)); // [ 'Repeat', index: 0, input: 'Repeat, Repeat, Repeat', groups: undefined ]
 
-	const (
-		firstName string = "Budi"
-		lastName	 = "Darmawan"
-	)
+let repeatRegex = /Repeat/g; // g (global) mencari semuanya (perulangan) secara global
+console.log(testStr.match(repeatRegex)); // [ 'Repeat', 'Repeat', 'Repeat' ]
 
-	fmt.Println(firstName) // Budi
-	fmt.Println(lastName) // Darmawan
-	fmt.Println(value) // 1000
+let twinkleStar = "Twinkle, twinkle, little star";
+let starRegex = /twinkle/gi; // Change this line
+let result = twinkleStar.match(starRegex); // Change this line
+
+console.log(result); // [ 'Twinkle', 'twinkle' ]
 ```
 
-## Conversion
-```go
-	var nilai32 int32 = 129
-	var nilai64 int64 = int64(nilai32)
-	var nilai8 int8 =  int8(nilai32)
+## 07. Match Anything with Wildcard 
+```js
+let humStr = "I'll hum a song";
+let hugStr = "Bear hug";
+let huRegex = /hu./;
+console.log(huRegex.test(humStr)); // true
+console.log(huRegex.test(hugStr)); // true
 
-	fmt.Println(nilai32) // 129
-	fmt.Println(nilai64) //129
-	fmt.Println(nilai8) // -127 (Overflow range int8 -> -128 s.d 127)
+let exampleStr = "Let's have fun with regular expressions!";
+let unRegex = /.un/; // . menjadi wildcard dari kata yang dicari
+let result = unRegex.test(exampleStr);
 
-	var name = "Budi"
-	var e = name[0]
-	var eString = string(e)
-
-	fmt.Println(name) // Budi
-	fmt.Println(eString) // B
+console.log(result); // true
 ```
 
-## Type Declaration
-```go
-	type NoKTP string
-	type Married bool
+## 08. Match Single Character with Multiple 
+```js
+let bigStr = "big";
+let bagStr = "bag";
+let bugStr = "bug";
+let bogStr = "bog";
+let bgRegex = /b[aiu]g/; // [] mencari kata dengan kemungkinan 1 karakter dalamnya 
+console.log(bigStr.match(bgRegex)); // [ 'big', index: 0, input: 'big', groups: undefined ]
+console.log(bagStr.match(bgRegex)); // [ 'bag', index: 0, input: 'bag', groups: undefined ]
+console.log(bugStr.match(bgRegex)); // [ 'bug', index: 0, input: 'bug', groups: undefined ]
+console.log(bogStr.match(bgRegex)); // null
 
-	var noKtpBudi NoKTP = "3603090710890001"
-	var marriedStatus Married = true
-	fmt.Println(noKtpBudi) // 3603090710890001
-	fmt.Println(marriedStatus) // true
+let quoteSample = "Beware of bugs in the above code; I have only proved it correct, not tried it.";
+let vowelRegex = /[aiueo]/gi; // Change this line
+let result = quoteSample.match(vowelRegex); // Change this line
+
+console.log(result);
+// [
+//     'e', 'a', 'e', 'o', 'u', 'i',
+//     'e', 'a', 'o', 'e', 'o', 'e',
+//     'I', 'a', 'e', 'o', 'o', 'e',
+//     'i', 'o', 'e', 'o', 'i', 'e',
+//     'i'
+// ]
 ```
 
-## Math Operation
-```go
-	var result = 10 + 10
-	fmt.Println(result) // 20
+## 09. Match Letters of the Alphabet
+```js
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex = /[a-e]at/; // [-] mencari kata dengan kemungkinan 1 karakter dalam range
+console.log(catStr.match(bgRegex)); // [ 'cat', index: 0, input: 'cat', groups: undefined ]
+console.log(batStr.match(bgRegex)); // [ 'bat', index: 0, input: 'bat', groups: undefined ]
+console.log(matStr.match(bgRegex)); // null
 
-	var a = 10
-	var b = 10
-	var c = a * b
-	fmt.Println(c) // 100
+let quoteSample2 = "The quick brown fox jumps over the lazy dog.";
+let alphabetRegex = /[a-z]/gi; // Change this line
+let result8 = quoteSample2.match(alphabetRegex); // Change this line
 
-	var i = 10
-	i += 10 // i = i + 10 
-	fmt.Println(i) // 20
-
-	i++
-	fmt.Println(i) // 21
-
-	var status = true
-	var notStatus = !status
-	fmt.Println(status) // true
-	fmt.Println(notStatus) // false
-
-	var negatif = -100
-	var positif = 100
-	fmt.Println(negatif) // -100
-	fmt.Println(positif) //100
+console.log(result8);
+// [
+//     'T', 'h', 'e', 'q', 'u', 'i', 'c',
+//     'k', 'b', 'r', 'o', 'w', 'n', 'f',
+//     'o', 'x', 'j', 'u', 'm', 'p', 's',
+//     'o', 'v', 'e', 'r', 't', 'h', 'e',
+//     'l', 'a', 'z', 'y', 'd', 'o', 'g'
+// ]
 ```
 
-## Comparation Operator
-```go
-	var name1 = "Budi"
-	var name2 = "budi"
+##  10. Match Numbers and Letters of the Alphabet
+```js
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig; // mencari karakter didalam range [] secara global dan ignore case
+console.log(jennyStr.match(myRegex));
+// [
+//     'J', 'e', 'n', 'n',
+//     'y', '8', '6', '7',
+//     '5', '3', '0', '9'
+// ]
 
-	var result bool = name1 == name2
-	fmt.Println(result) // false
+let quoteSample = "Blueberry 3.141592653s are delicious.";
+let myRegex2 = /[h-s2-6]/gi; // Change this line
+let result = quoteSample.match(myRegex2); // Change this line
 
-	var value1 = 100
-	var value2 = 200
-
-	fmt.Println(value1 > value2) // false
-	fmt.Println(value1 < value2) // true
-	fmt.Println(value1 == value2) // false
-	fmt.Println(value1 != value2) // true
+console.log(result); 
+// [
+//     'l', 'r', 'r', '3', '4',
+//     '5', '2', '6', '5', '3',
+//     's', 'r', 'l', 'i', 'i',
+//     'o', 's'
+// ]
 ```
 
-## Boolean Operator
-```go
-	var ujian = 80
-	var absensi = 75
+##  11. Match Single Characters Not 
+```js
+let quoteSample = "3 blind mice.";
+let myRegex = /[^0-9aiueo]/gi; // ^ di dalam [] mencari pengecualian dari range [] secara global dan ignore
+let result = quoteSample.match(myRegex); // Change this line
 
-	var lulusUjian = ujian >= 80
-	var lulusAbsensi = absensi >= 80
-	fmt.Println(lulusUjian) // true
-	fmt.Println(lulusAbsensi) // false
-
-	var lulus = lulusUjian && lulusAbsensi
-	fmt.Println(lulus) // false
-
-	fmt.Println(ujian >= 80 && absensi >= 80) // false
+console.log(result);
+// [
+//     ' ', 'b', 'l',
+//     'n', 'd', ' ',
+//     'm', 'c', '.'
+// ]
 ```
 
-## Array
-```go
-	var names [3]string
+## 12. Match Characters that Occur One or More Times
+```js
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/gi; // mencari perulangan 1 karakter, diulang 1 atau lebih
+let result = difficultSpelling.match(myRegex);
 
-	names[0] = "Budi"
-	names[1] = "Darmawan"
-	names[2] = "Suntree"
-
-	fmt.Println(names[0]) // Budi
-	fmt.Println(names[1]) // Darmawan
-	fmt.Println(names[2]) // Suntree
-
-	var value = [3]int {
-		90,
-		95,
-		80,
-	}
-
-	fmt.Println(value) // [90 95 80]
-
-	var lagi [10]string
-	
-	fmt.Println(len(names)) // 3
-	fmt.Println(len(value)) // 3
-	fmt.Println(len(lagi)) // 10
+console.log(result); // [ 'ss', 'ss' ]
 ```
 
-## Slice
-```go
-	var month = [...]string {
-		"Januari",
-		"Februari",
-		"Maret",
-		"April",
-		"Mei",
-		"Juni",
-		"Juli",
-		"Agustus",
-		"September",
-		"Oktober",
-		"November",
-		"Desember",
-	}
+## 13. Match Characters that Occur Zero or More Times
+```js
+let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/; // Mencari 1 karakter, baik ada (1 atau lebih) maupun tidak ada (0) 
 
-	var slice1 = month[4:7]
-	fmt.Println(slice1) // [Mei Juni Juli]
-	fmt.Println(len(slice1)) // 3
-	fmt.Println(cap(slice1)) // 8
+console.log(soccerWord.match(goRegex)); // [ 'goooooooo', index: 0, input: 'gooooooooal!', groups: undefined ]
+console.log(gPhrase.match(goRegex)); // [ 'g', index: 0, input: 'gut feeling', groups: undefined ]
+console.log(oPhrase.match(goRegex)); // null
 
-	month[5] = "Diubah"
-	fmt.Println(slice1) // [Mei Diubah Juli]
+// Only change code below this line
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!"
+let chewieRegex = /Aa*/; // Change this line
+// Only change code above this line
+let result = chewieQuote.match(chewieRegex);
 
-	slice1[0] = "Diganti"
-	fmt.Println(month) // [Januari Februari Maret April Diganti Diubah Juli Agustus September Oktober November Desember]
-
-	var slice2 = month[10:]
-	fmt.Println(slice2) // [November Desember]
-
-	var slice3 = append(slice2, "Tambah")
-	fmt.Println(slice3) // [November Desember Tambah]
-	
-	fmt.Println(slice2) // [November Desember]
-	fmt.Println(month) // [Januari Februari Maret April Diganti Diubah Juli Agustus September Oktober November Desember]
-
-	newSlice := make ([]string, 2, 5)
-
-	newSlice[0] = "Budi"
-	newSlice[1] = "Darmawan"
-
-	fmt.Println(newSlice) // [Budi Darmawan]
-	fmt.Println(len(newSlice)) // 2
-	fmt.Println(cap(newSlice)) // 5
-	
-	copySlice := make ([]string, len(newSlice), cap(newSlice))
-	copy(copySlice, newSlice)
-	fmt.Println(copySlice) // [Budi Darmawan]
-
-	iniArray := [5]int {1, 2, 3, 4, 5}
-	iniSlice := []int {1, 2, 3, 4, 5}
-
-	fmt.Println(iniArray) // [1 2 3 4 5]
-	fmt.Println(iniSlice) // [1 2 3 4 5]
+console.log(result); // [ 'Aaaaaaaaaaaaaaaa', index: 0, input: 'Aaaaaaaaaaaaaaaarrrgh!', groups: undefined ]
 ```
 
-## Map
-```go
-	person := map[string]string {
-		"name" : "Budi",
-		"address" : "Surabaya",
-	}
+## 14. Find Characters with Lazy Matching (?)
+```js
+let textExample = "titanic";
+let myRegexExample = /t[a-z]*i/; // secara default mengambil sebanyak2nya karakter
+let myRegexExample2 = /t[a-z]*?i/; // dengan ? mengambil paling sedikit karakter yang ditemukan diantara range []
+console.log(textExample.match(myRegexExample)); // [ 'titani', index: 0, input: 'titanic', groups: undefined ]
+console.log(textExample.match(myRegexExample2)); // [ 'ti', index: 0, input: 'titanic', groups: undefined ]
 
-	person["title"] = "Programmmer"
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*?>/; // Change this line
+let result = text.match(myRegex);
 
-	fmt.Println(person) // map[address:Surabaya name:Budi title:Programmmer]
-	fmt.Println(person["name"]) // Budi
-	fmt.Println(person["address"]) // Surabaya
-
-	var book map[string]string = make(map[string]string)
-	book["titile"] = "Belajar Go-Lang"
-	book["author"] = "Budi"
-	book["ups"] = "Salah"
-	fmt.Println(book) // map[author:Budi titile:Belajar Go-Lang ups:Salah]
-	fmt.Println(len(book)) // 3
-
-	delete(book, "ups")
-	fmt.Println(book) // map[author:Budi titile:Belajar Go-Lang]
-	fmt.Println(len(book)) // 2
+console.log(result); // [ '<h1>', index: 0, input: '<h1>Winter is coming</h1>', groups: undefined ]
 ```
 
-## If Expression
-```go
-	var name = "Darmawan"
+## 15. Find One or More Criminals in a Hunt
+```js
+let reCriminals = /C+/; // Mencari perulangan karakter C
 
-	if name == "Budi" {
-		fmt.Println("Hello Budi")
-	} else if name == "Darmawan" {
-		fmt.Println("Hello Darmawan") // Hello Darmawan
-	} else {
-		fmt.Println("Hi, boleh kenalan?")
-	}
-
-	// short expression
-	if length := len(name) ; length > 5 {
-		fmt.Println("Terlalu panjang") // Terlalu panjang
-	} else {
-		fmt.Println("Nama sudah benar")
-	}
-
+console.log("P1P5P4CCCcP2P6P3".match(reCriminals)); // [ 'CCC', index: 6, input: 'P1P5P4CCCcP2P6P3', groups: undefined ]
 ```
 
-## Switch Expression
-```go
-	name := "Darmawan"
+## 16. Match Beginning String Patterns
+```js
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/; // ^ pada regex mengharuskan kata ada di depan
+console.log(firstRegex.test(firstString)); // true
+let notFirst = "You can't find Ricky now.";
+console.log(firstRegex.test(notFirst)); // false
 
-	switch name {
-	case "Budi" :
-		fmt.Println("Hello Budi")
-	case "Darmawan" :
-		fmt.Println("Hello Darmawan") // Hello Darmawan
-	default :
-		fmt.Println("Hi, boleh kenalan?")
-	}
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+let result = calRegex.test(rickyAndCal);
 
-	// short expression
-	switch length := len(name) ; length > 5 {
-	case true :
-		fmt.Println("Nama terlalu panjang") // Nama terlalu panjang
-	case false :
-		fmt.Println("Nama sudah benar")
-	}
-
-	// switch tanpa ekspresi (seperti if)
-	length := len(name)
-	switch {
-	case length > 10 :
-		fmt.Println("Nama terlalu panjang")
-	case length > 5 :
-		fmt.Println("Nama lumayan panjang") // Nama lumayan panjang
-	default :
-		fmt.Println("Nama sudah benar")
-	}
+console.log(result); // true
 ```
 
-## For Loops
-```go
-	for counter := 1 ; counter <= 5 ; counter++ {
-		fmt.Println("perulangan ke", counter)
-	}
-	/*
-		perulangan ke 1
-		perulangan ke 2
-		perulangan ke 3
-		perulangan ke 4
-		perulangan ke 5
-	*/
+## 17. Match Ending String Patterns
+```js
+let theEnding = "This is a never ending story";
+let storyRegex = /story$/; // $ pada regex mengharuskan kata berasa di akhir
+console.log(storyRegex.test(theEnding)); // true
+let noEnding = "Sometimes a story will have to end";
+console.log(storyRegex.test(noEnding)); // false
 
-	slice := []string {"Budi", "Darmawan", "Suntree"}
-	for i := 0 ; i < len(slice) ; i++ {
-		fmt.Println(slice[i])
-	}
-	/*
-		Budi
-		Darmawan
-		Suntree
-	*/
-		
-	for i, value := range slice {
-		fmt.Println("Index", i, "=", value)
-	}
-	/*
-		Index 0 = Budi
-		Index 1 = Darmawan
-		Index 2 = Suntree
-	*/
-	
-	// index yang tidak digunakan
-	for _, value := range slice {
-		fmt.Println(value)
-	}
-	/*
-		Budi
-		Darmawan
-		Suntree
-	*/
-	
-	person := make(map[string]string)
-	person["nama"] = "Budi"
-	person["title"] = "Programmer"
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/; // Change this line
+let result = lastRegex.test(caboose);
 
-	for key, value := range person {
-		fmt.Println(key, "=", value)
-	}
-	/*
-		title = Programmer
-		nama = Budi
-	*/
+console.log(result); // true
 ```
 
-## Break & Continue
-```go
-	for i := 0; i < 10 ; i++ {
-		if i == 5 {
-			break
-		}
-		fmt.Println("Perulangan ke", i)
-	}
-	/*
-		Perulangan ke 0
-		Perulangan ke 1
-		Perulangan ke 2
-		Perulangan ke 3
-		Perulangan ke 4
-	*/
+## 18. Match All Letters and Numbers
+```js
+let longHand = /[A-Za-z0-9_]+/; // semua huruf besar dan kecil, angka, dan _
+let shortHand = /\w+/; // \w adalah singkatannya
+let numbers = "42";
+let varNames = "important_var";
+console.log(longHand.test(numbers)); // true
+console.log(shortHand.test(numbers)); // true
+console.log(longHand.test(varNames)); // true
+console.log(shortHand.test(varNames)); // true
 
-	for i := 0; i < 10 ; i++ {
-		if i % 2 == 0 {
-			continue
-		}
-		fmt.Println("Perulangan ke", i)
-	}
-	/*
-		Perulangan ke 1
-		Perulangan ke 3
-		Perulangan ke 5
-		Perulangan ke 7
-		Perulangan ke 9
-	*/
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g; // Change this line
+let result = quoteSample.match(alphabetRegexV2).length;
+
+console.log(result); // 31
 ```
 
-## Function
-```go
-package main
+## 19. Match Everything But Letters and Numbers
+```js
+let shortHand2 = /\W/; // \W (huruf besar) menjadi pengecualian dari \w
+let numbers2 = "42%";
+let sentence = "Coding!";
+console.log(numbers2.match(shortHand2)); // [ '%', index: 2, input: '42%', groups: undefined ]
+console.log(sentence.match(shortHand2)); // [ '!', index: 6, input: 'Coding!', groups: undefined ]
 
-import "fmt"
+let quoteSample6 = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /\W/g; // Change this line
+let result17 = quoteSample6.match(nonAlphabetRegex).length;
 
-func sayHello() {
-	fmt.Println("Hello")
-}
-
-func main() {
-
-	sayHello() // Hello
-	sayHello() // Hello
-	sayHello() // Hello
-
-}
+console.log(result17) // 6
 ```
 
-## Function Parameter
-```go
-func sayHelloTo(firstName string, lastName string) {
-	fmt.Println("Hello", firstName, lastName)
-}
+## 20. Match All (\d)
+```js
+// \d = [0-9] semua angka dari 0-9
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; // Change this line
+let result = movieName.match(numRegex).length;
 
-func main() {
-
-	firstName := "Budi"
-	sayHelloTo(firstName, "Darmawan") // Hello Budi Darmawan
-	sayHelloTo("Iwan", "Setiawan") // Hello Iwan Setiawan
-
-}
+console.log(result) // 4
 ```
 
-## Function Return Value
-```go
-func getHello(name string) string {
-	if name == "" {
-		return "Hello Bro"
-	} else {
-		return "Hello " + name
-	}
-}
+## 21. Match All Non-Numbers
+```js
+// \D (huruf besar) menjadi pengecualian \d
+let movieName = "2001: A Space Odyssey";
+let noNumRegex = /\D/g; // Change this line
+let result = movieName.match(noNumRegex).length;
 
-func main() {
-
-	result := getHello("Budi")
-	fmt.Println(result) // Hello Budi
-
-	fmt.Println(getHello("")) // Hello Bro
-
-}
+console.log(result) // 17
 ```
 
-## Returning Multiple Value
-```go
-func getFullName() (string, string, int) {
-	return "Budi", "Darmawan", 30
-}
-
-func main() {
-
-	firstName, lastName, age := getFullName()
-	fmt.Println(firstName) // Budi
-	fmt.Println(lastName) // Darmawan
-	fmt.Println(age) // 30
-
-	namaDepan, namaBelakang, _ := getFullName()
-	fmt.Println(namaDepan) // Budi
-	fmt.Println(namaBelakang) // Darmawan
-
-}
-```
-
-## Named Return Value
-```go
-func getFullName2() (firstName string, lastName string, age int) {
-	firstName = "Budi"
-	lastName = "Darmawan"
-	age = 33
-	return
-}
-
-func main() {
-
-	a, b, c := getFullName2()
-	fmt.Println(a) // Budi
-	fmt.Println(b) // Darmawan
-	fmt.Println(c) // 33
-
-}
-```
-
-## Variadic Function
-```go
-func sumAll(numbers ...int) int {
-	total := 0
-	for _, value := range numbers {
-		total += value
-	}
-	return total
-}
-
-func main() {
-
-	total := sumAll(10, 90, 30, 50, 40)
-	fmt.Println(total) // 220
-
-	slice := []int{10, 20, 30, 40 ,50}
-	total = sumAll(slice...)
-	fmt.Println(total) // 150
-	
-}
-```
-
-## Function as Value
-```go
-func getGoodBy(name string) string {
-	return "Good By " + name
-}
-
-func main() {
-
-	sayGoodBy := getGoodBy
-	result := sayGoodBy("Budi")
-	fmt.Println(result) // Good By Budi
-
-}
-```
-
-## Function as Parameter
-```go
-type Filter func(string) string
-
-func sayHelloWithFilter(name string, filter Filter) {
-	nameFiltered := filter(name)
-	fmt.Println("Hello " + nameFiltered)
-}
-
-func spamFilter(name string) string {
-	if name == "Anjing" {
-		return "..."
-	} else {
-		return name
-	}
-}
-
-func main() {
-
-	sayHelloWithFilter("Budi", spamFilter) // Hello Budi
-	sayHelloWithFilter("Anjing", spamFilter) // Hello ...
-
-}
-```
-
-## Anonymous Function
-```go
-type Blacklist func(string) bool
-
-func registerUser(name string, blacklist Blacklist) {
-	if blacklist(name) {
-		fmt.Println("You are blocked " + name)
-	} else {
-		fmt.Println("Welcome " + name)
-	}
-}
-
-func main() {
-
-	blacklist := func(name string) bool {
-		return name == "admin"
-	}
-	
-	registerUser("admin", blacklist) // You are blocked admin
-	registerUser("budi", blacklist) // Welcome budi
-
-	registerUser("root", func(name string) bool {
-		return name == "root"
-	})
-	// You are blocked root
-
-}
-```
-
-## Recursive Function
-```go
-func factorialLoop(value int) int {
-	result := 1
-	for i := value; i > 0; i-- {
-		result *= i
-	}
-
-	return result
-}
-
-func factorilaRecursive(value int) int {
-	if value == 1 {
-		return 1
-	} else {
-		return value * factorilaRecursive(value - 1)
-	}
-}
-
-func main() {
-
-	loop := factorialLoop(5)
-	fmt.Println(loop) // 120
-	fmt.Println(5*4*3*2*1) // 120
-
-	recursive := factorilaRecursive(5)
-	fmt.Println(recursive) // 120
-
-}
-```
-
-## Closures
-```go
-func main() {
-
-	name := "Budi"
-	counter := 0
-
-	increment := func() {
-
-		name = "Iwan"
-		fmt.Println("Increment")
-		counter++
-
-	}
-
-	increment() // Increment
-	increment() // Increment
-	fmt.Println(counter) // 2
-	fmt.Println(name) // Iwan
-
-}
-
-```
-
-## Defer in Function
-```go
-func logging() {
-	fmt.Println("Selesai memanggil function")
-}
-
-func runApplication(value int) {
-	defer logging() // tetap akan dieksekusi
-	fmt.Println("Run Appliaction") // dieksekusi
-	result := 10/value // error
-	fmt.Println("Result", result) // tidak dieksekusi
-}
-
-func main() {
-
-	runApplication(0)
-
-}
-/*
-	Run Appliaction
-	Selesai memanggil function
-	panic: runtime error: integer divide by zero
+## 22. Restrict Possible Usernames
+```js
+/* Test 2
+1. Usernames can only use alpha-numeric characters.
+2. The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+3. Username letters can be lowercase and uppercase.
+4. Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
 */
+
+let username = "JackOfAllTrades";
+let userCheck = /^[a-zA-Z][a-zA-Z]+\d*$|^[a-zA-Z]\d\d+$/g; // Change this line
+let result = userCheck.test(username);
+
+console.log(username.match(userCheck)) // JackOfAllTrades
+console.log(result) // true
 ```
 
-## Panic in Function
-```go
-func endApp() {
-	fmt.Println("Aplikasi selesai")
-}
+## 23. Match Whitespace
+```js
+// \s = [ \r\t\f\n\v]
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g; // mecari whitespace secara golbal
+console.log(whiteSpace.match(spaceRegex)); // [ ' ', ' ' ]
 
-func runApp(error bool) {
-	defer endApp() // tetap akan dieksekusi
-	if error {
-		panic("APLIKASI ERROR") // panic message dieksekusi saat error
-	}
-	fmt.Println("Aplikasi berjalan") // tidak akan dieksekusi
-}
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g; // Change this line
+let result = sample.match(countWhiteSpace);
 
-func main() {
-
-	runApp(true)
-	fmt.Println("Program berjalan") // tidak akan dieksekusi saat terjadi error
-
-}
-/*
-	Aplikasi selesai
-	panic: APLIKASI ERROR
-*/
+console.log(result) // [ ' ', ' ', ' ', ' ', ' ' ]
 ```
 
-## Recovery in Function
-```go
-func endApp() {
-	message := recover() // untuk menangkap error dan tidak menghentikan program selanjutnya
-	if message != nil {
-		fmt.Println("Error dengan message", message)
-	}
-	fmt.Println("Aplikasi selesai")
-}
+## 24. Match Whitespace
+```js
+// \S = [^ \r\t\f\n\v]
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let nonSpaceRegex = /\S/g; // \S (huruf besar) merupakan pengecualian dari \s
+console.log(whiteSpace.match(nonSpaceRegex).length); // 32
 
-func runApp(error bool) {
-	defer endApp()
-	if error {
-		panic("APLIKASI ERROR")
-	}
-	fmt.Println("Aplikasi berjalan")
-}
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g; // Change this line
+let result = sample.match(countNonWhiteSpace);
 
-func main() {
-
-	runApp(true)
-	fmt.Println("Program berjalan") // tetap di eksekusi karena panic telah di recover
-
-}
-/*
-	Error dengan message APLIKASI ERROR
-	Aplikasi selesai
-	Program berjalan
-*/
+console.log(result)
+// [
+//     'W', 'h', 'i', 't', 'e', 's', 'p',
+//     'a', 'c', 'e', 'i', 's', 'i', 'm',
+//     'p', 'o', 'r', 't', 'a', 'n', 't',
+//     'i', 'n', 's', 'e', 'p', 'a', 'r',
+//     'a', 't', 'i', 'n', 'g', 'w', 'o',
+//     'r', 'd', 's'
+// ]
 ```
 
-## Comment
-```go
-// ini komentar single line
+## 25. Specify Upper and Lower Number of Matches ({})
+```js
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/; // perulangan 1 karakter dalam range {3-5}
+console.log(multipleA.test(A4)); // true
+console.log(multipleA.test(A2)); // false
 
-/**
-ini
-komentar
-multi
-lane
-*/
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6} no/; // Change this line
+let result = ohRegex.test(ohStr);
+
+console.log(result) // true
 ```
 
-## Struct
-```go
-type Customer struct {
-	Name, Address string
-	Age int
-}
+## 26. Specify Upper and Lower Number of Matches
+```js
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/; // mencari perulangan 1 karakter dalam range {3-~}
+console.log(multipleA.test(A4)); // true
+console.log(multipleA.test(A2)); // false
+console.log(multipleA.test(A100)); // true
 
-func main() {
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/; // Change this line
+let result = haRegex.test(haStr);
 
-	// Cara input property dengan (=)
-	var budi Customer
-	budi.Name = "Budi Darmawan"
-	budi.Address = "Surabaya"
-	budi.Age = 30
-
-	fmt.Println(budi) // {Budi Darmawan Surabaya 30}
-	fmt.Println(budi.Name) // Budi Darmawan
-	fmt.Println(budi.Address) // Surabaya
-	fmt.Println(budi.Age) // 30
-
-	// Cara key-value dengan (:)
-	iwan := Customer {
-		Name : "Iwan Setiawan",
-		Address : "Bandung",
-		Age : 35,
-	}
-	fmt.Println(iwan) // {Iwan Setiawan Bandung 35}
-
-	// Cara langsung
-	// tidak disarankan karena sangat tergantung urutan prototype
-	wati := Customer { "Wati", "Tangerang", 25 }
-	fmt.Println(wati) // {Wati Tangerang 25}
-
-}
+console.log(result) // true
 ```
 
-## Struct Method
-```go
-type Customer struct {
-	Name, Address string
-	Age int
-}
+## 27. Specify Upper and Lower Number of Matches
+```js
+let A4 = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3}h/; // mencari perulangan 1 karakter dengan jumlah yang tepat {3}
+console.log(multipleA.test(A4)); // false
+console.log(multipleA.test(A3)); // true
+console.log(multipleA.test(A100)); // false
 
-func (customer Customer) sayHi(name string) {
-	fmt.Println("Hello", name, "my name is", customer.Name)
-}
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/; // Change this line
+let result = timRegex.test(timStr);
 
-func main() {
-
-	var budi Customer
-	budi.Name = "Budi Darmawan"
-	budi.Address = "Surabaya"
-	budi.Age = 33
-
-	budi.sayHi("Iwan") // Hello Iwan my name is Budi Darmawan
-
-}
+console.log(result) // true
 ```
 
-## Interface
-```go
-type HasName interface {
-	GetName() string
-}
+## 28. Check for All or None
+```js
+let american = "color";
+let british = "colour";
+let rainbowRegex= /colou?r/; // mengecek ada atau tidak 1 karakter tertentu
+console.log(rainbowRegex.test(american)); // true
+console.log(rainbowRegex.test(british)); // true
 
-func SayHello(hasName HasName)  {
-	fmt.Println("Hello", hasName.GetName())
-}
+let favWord = "favorite";
+let favRegex = /favou?rite/; // Change this line
+let result = favRegex.test(favWord);
 
-// Person struct
-type Person struct {
-	Name string
-}
-
-func (person Person) GetName() string {
-	return person.Name
-}
-
-// Animal struct
-type Animal struct {
-	Name string
-}
-
-func (animal Animal) GetName() string {
-	return animal.Name
-}
-
-func main() {
-
-	var budi Person
-	budi.Name = "Budi Darmawan"
-
-	SayHello(budi) // Hello Budi Darmawan
-
-	cat := Animal {
-		Name : "Push",
-	}
-
-	SayHello(cat) // Hello Push
-
-}
+console.log(result) // true
 ```
 
-## Interface Kosong
-```go
-func Ups(i int) interface {} {
-	if i == 1 {
-		return 1
-	} else if i == 2 {
-		return true
-	} else {
-		return "Ups"
-	}
-}
+## 29. Positive and Negative Lookahead
+```js
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/; // memastikan u ada
+let qRegex = /q(?!u)/; // memastikan u tidak ada
+console.log(quit.match(quRegex)); // [ 'q', index: 0, input: 'qu', groups: undefined ]
+console.log(noquit.match(qRegex)); // [ 'q', index: 0, input: 'qt', groups: undefined ]
+console.log(quit.match(qRegex)); // null
+console.log(noquit.match(quRegex)); // null
 
-func main() {
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+console.log(checkPass.test(password)); // true
 
-	var data interface{} = Ups(1)
-	fmt.Println(data) // 1
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6,})(?=\D*\d{2})/; // Change this line
+// memastikan jumlah karakter lebih dari 5 dan memastikan setelah bukan angka ada atau tidak (dimananapun) ada 2 angka berurutan
+let result = pwRegex.test(sampleWord);
 
-	data = Ups(2)
-	fmt.Println(data) // true
-
-	data = Ups(3)
-	fmt.Println(data) // Ups
-
+console.log(result) // false (tidak ada 2 angka berdekatan)
 ```
 
-## Nil
-```go
-func NewMap(name string) map[string]string {
-	if name == "" {
-		return nil
-	} else {
-		return map[string]string {
-			"name" : name,
-		}
-	}
-}
+##  30. Check For Mixed Grouping of Characters (|)
+```js
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/; // alternatif pencarian dengan template kata dalam ()
+console.log(testRegex.test(testStr)); // true
 
-func main() {
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Franklin|Eleanor).* Roosevelt/; // Change this line
+let result = myRegex.test(myString); // Change this line
+// After passing the challenge experiment with myString and see how the grouping works
 
-	person := NewMap("Budi")
-	fmt.Println(person) // map[name:Budi]
-
-}
+console.log(result) // true
+console.log(myString.match(myRegex))
+// [
+//     'Eleanor Roosevelt',
+//     'Eleanor',
+//     index: 0,
+//     input: 'Eleanor Roosevelt',
+//     groups: undefined
+// ]
 ```
 
-## Interface Error
-```go
-import "errors"
-import "fmt"
+## 31. Reuse Patterns Using Capture Groups
+```js
+let repeatStr = "row row row your boat";
+let repeatRegex = /(\w+) \1 \1/; // mencari perulangan dengan patern () dipanggil dengan \1 
+console.log(repeatRegex.test(repeatStr)); // true
+console.log(repeatStr.match(repeatRegex)); // ["row row row", "row"]
 
-func Pembagi(nilai int, pembagi int) (int, error) {
-	if pembagi == 0 {
-		return 0, errors.New("Pembagi tidak boleh 0")
-	} else {
-		result := nilai / pembagi
-		return result, nil
-	}
-}
+let repeatStr2 = "regex regex";
+let repeatRegex2 = /(\w+)\s\1/;
+console.log(repeatRegex2.test(repeatStr2)); // 
+console.log(repeatStr2.match(repeatRegex2)); // ["regex regex", "regex"]
 
-func main() {
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/; // Change this line
+let result = reRegex.test(repeatNum);
 
-	hasil, err := Pembagi(100, 0)
-	if err == nil {
-		fmt.Println("Hasil", hasil)
-	} else {
-		fmt.Println("Error", err.Error()) // Error Pembagi tidak boleh 0
-	}
-
-}
+console.log(result) // true
+console.log(repeatNum.match(reRegex)) // [ '42 42 42', '42', index: 0, input: '42 42 42', groups: undefined ]
 ```
 
+## 32. Use Capture Groups to Search and Replace (.replace)
+```js
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+console.log(wrongText.replace(silverRegex, "blue")); // The sky is blue. -> menukar kata dengan regex menggunakan .replace
 
-## Type Assertions
-```go
-func random() interface{} {
-	return true
-}
+console.log("Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1')); // Camp Code -> menukar posisi dari pola () dan dipanggil dengan $urutan pola
 
-func main() {
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // Change this line
+let replaceText = "$3 $2 $1"; // Change this line
+let result = str.replace(fixRegex, replaceText);
 
-	var result interface{} = random()
-	// var resultString = result.(string)
-	// fmt.Println(resultString)
-
-	switch value := result.(type) {
-	case string :
-		fmt.Println("Value", value, "is string")
-	case int :
-		fmt.Println("Value", value, "is int")
-	default :
-		fmt.Println("Unknown type") // Unknown type
-	}
-
-}
+console.log(result) // three two one
 ```
 
-## Pointer
-```go
-type Address struct {
-	City, Province, Country string
-}
-
-func main() {
-
-	// Pass by value
-	address1 := Address{"Bandung", "Jawa Barat", "Indonesia"}
-	address2 := address1
-	address2.City = "Subang" //? perubahan address2 TIDAK MENGUBAH reference (address1)
-
-	fmt.Println(address1) // {Bandung Jawa Barat Indonesia}
-	fmt.Println(address2) // {Subang Jawa Barat Indonesia}
-
-	// Pass by reference -> Pointer (&)
-	address3 := Address{"Surabaya", "Jawa Timur", "Indonesia"}
-	address4 := &address3
-	address4.City = "Lamongan" // perubahan address4 MENGUBAH reference (address3)
-
-	fmt.Println(address3) // {Lamongan Jawa Timur Indonesia}
-	fmt.Println(address4) // &{Lamongan Jawa Timur Indonesia}
-
-	// Assign nilai baru TIDAK MENGUBAH reference
-	address5 := Address{"Tangerang", "Banten", "Indonesia"}
-	address6 := &address5
-	address6 = &Address{"Yogyakarta", "DIY", "Indonesia"}
-
-	fmt.Println(address5) // {Tangerang Banten Indonesia}
-	fmt.Println(address6) // &{Yogyakarta DIY Indonesia}
-
-	// Assign nilai baru MENGUBAH reference dengan (*)
-	address7 := Address{"Pontianak", "Kalimantan Barat", "Indonesia"}
-	address8 := &address7
-	*address8 = Address{"Samarinda", "Kalimantan Timur", "Indonesia"}
-
-	fmt.Println(address7) // {Samarinda Kalimantan Timur Indonesia}
-	fmt.Println(address8) // &{Samarinda Kalimantan Timur Indonesia}
-
-	var address9 *Address = new(Address)
-	address9.City = "Jakarta"
-	fmt.Println(address9) // &{Jakarta  }
-	
-}
-```
-
-## Pointer in Function
-```go
-type Address struct {
-	City, Province, Country string
-}
-
-func ChangeCountryToINdonesia(address *Address) { // Tambahkan *
-	address.Country = "Indonesia"
-}
-
-func main() {
-
-	var address10 = Address {
-		City : "Subang",
-		Province : "Jawa Barat",
-		Country : "",
-	}
-
-	ChangeCountryToINdonesia(&address10) // Tambahkan &
-
-	fmt.Println(address10) // {Subang Jawa Barat Indonesia}
-	
-}
-```
-
-## Pointer in Method
-```go
-type Man struct {
-	Name string
-}
-
-func (man *Man) Merried() { // Tambahkan *
-	man.Name = "Mr. " + man.Name
-}
-
-func main() {
-
-	budi := Man{"Budi"}
-	budi.Merried()
-	fmt.Println(budi.Name) // Mr. Budi
-
-}
-```
-
-## Import
-```go
-import "01p_belajar_golang_dasar/helper"
-
-func main() {
-
-	helper.SayHello("Budi") // Hello Budi
-
-}
-```
-
-## Access Modifier
-```go
-import "01p_belajar_golang_dasar/helper"
-import "fmt"
-
-func main() {
-
-	helper.SayHello("Budi") // Hello Budi
-	// helper.sayGoodBye("Budi") // error
-	fmt.Println(helper.Application) // Belajar Golang Dasar
-	// fmt.Println(helper.version) // error
-
-}
-```
-
-## Package Initialization
-```go
-import "01p_belajar_golang_dasar/database"
-// import _ "01p_belajar_golang_dasar/database" // blank identifier (_)
-import "fmt"
-
-func main() {
-
-	result := database.GetDatabase()
-	fmt.Println(result)
-
-}
-/*
-	Init dipanggil
-	MySQL
-*/
-```
-
-## Package OS
-```go
-import "os"
-import "fmt"
-
-func main() {
-
-	// Args
-	args := os.Args
-	fmt.Println("Arguments : ") // Arguments :
-	fmt.Println(args) // [C:\Users\Owner\AppData\Local\Temp\go-build2431035763\b001\exe\47_package-os.exe]
-
-	// Hostname
-	name, err := os.Hostname()
-	if err == nil {
-		fmt.Println("Hostname : ", name) // Hostname :  LAPTOP-XXXXX000
-	} else {
-		fmt.Println("Error ; ", err.Error())
-	}
-
-	// Environment variables
-	username := os.Getenv("APP_USERNAME")
-	password := os.Getenv("APP_PASSWORD")
-
-	fmt.Println(username)
-	fmt.Println(password)
-
-	// export APP_USERNAME=root
-	// export APP_PASSWORD=root
-
-}
-```
-
-## Package Flag
-```go
-import "flag"
-import "fmt"
-
-func main() {
-
-	var host *string = flag.String("host", "localhost", "Put your database host")
-	var username *string = flag.String("username", "root", "Put your database username")
-	var password *string = flag.String("password", "root", "Put your database password")
-	var number *int = flag.Int("number", 100, "Put your number")
-
-	flag.Parse() // untuk memparsing data masukan
-
-	fmt.Println("Host : ", *host) // Host :  localhost
-	fmt.Println("Username : ", *username) // Username :  root
-	fmt.Println("Password : ", *password) // Password :  root
-	fmt.Println("Number : ", *number) // Number :  100
-
-	// go run .\48_package-flag.go -username=budi -number=budi
-	// Akan menghasilkan error dan instruksi pengisian
-
-}
-```
-
-## Package String
-```go
-import "fmt"
-import "strings"
-
-func main() {
-
-	fmt.Println(strings.Contains("Budi Darmawan", "Budi")) // true
-	fmt.Println(strings.Contains("Budi Darmawan", "Iwan")) // false
-
-	fmt.Println(strings.Split("Budi Darmawan", " ")) // [Budi Darmawan]
-
-	fmt.Println(strings.ToLower("Budi Darmawan")) // budi darmawan
-	fmt.Println(strings.ToUpper("Budi Darmawan")) // BUDI DARMAWAN
-	fmt.Println(strings.ToTitle("Budi Darmawan")) // BUDI DARMAWAN
-
-	fmt.Println(strings.Trim("     Budi Darmawan     ", " ")) // Budi Darmawan
-
-	fmt.Println(strings.ReplaceAll("Budi Budi Budi Iwan Wati", "Budi", "Darmawan")) // Darmawan Darmawan Darmawan Iwan Wati
-
-}
-```
-
-## Package Strconv
-```go
-import "strconv"
-import "fmt"
-
-func main() {
-
-	// String to other type
-	boolean, err := strconv.ParseBool("true")
-	if err == nil {
-		fmt.Println(boolean) // true
-	} else {
-		fmt.Println(err.Error())
-	}
-
-	number, err := strconv.ParseInt("1000000", 10, 64)
-	if err == nil {
-		fmt.Println(number) // 1000000
-	} else {
-		fmt.Println(err.Error())
-	}
-	
-	valueInt, _ := strconv.Atoi("2000000")
-	fmt.Println(valueInt) // 2000000
-
-	// Other Type to string
-	value := strconv.FormatInt(1000000, 10)
-	fmt.Println(value) // 1000000
-
-	valueString := strconv.Itoa(45)
-	fmt.Println(valueString) // 45
-
-}
-```
-
-## Package Math
-```go
-import "math"
-import "fmt"
-
-func main() {
-
-	fmt.Println(math.Round(1.7)) // 2
-	fmt.Println(math.Round(1.3)) // 1
-	fmt.Println(math.Floor(1.7)) // 1
-	fmt.Println(math.Ceil(1.3)) // 2
-
-	fmt.Println(math.Max(10, 20)) // 20
-	fmt.Println(math.Min(10, 20)) // 10
-
-}
-```
-
-## Package Container List
-```go
-import "container/list"
-import "fmt"
-
-func main() {
-
-	data := list.New()
-
-	data.PushBack("Budi")
-	data.PushBack("Darmawan")
-	data.PushFront("Suntree")
-
-	// menampilkan data pertama atau terakhir
-	fmt.Println(data.Front().Value) // Suntree
-	fmt.Println(data.Back().Value) // Darmawan
-
-	// menampilkan data ujung (nil)
-	fmt.Println(data.Front().Prev()) // <nil>
-	fmt.Println(data.Back().Next()) // <nil>
-
-	// dari depan ke belakang
-	for element := data.Front(); element != nil; element = element.Next() {
-		fmt.Println(element.Value)
-	}
-	/*
-		Suntree
-		Budi
-		Darmawan
-	*/
-
-	// dari belakang ke depan
-	for element := data.Back(); element != nil; element = element.Prev() {
-		fmt.Println(element.Value)
-	}
-	/*
-		Darmawan
-		Budi
-		Suntree
-	*/
-}
-```
-
-## Package Container Ring
-```go
-import "container/ring"
-import "strconv"
-import "fmt"
-
-func main() {
-
-	// var data *ring.Ring = ring.New(5)
-	data := ring.New(5)
-
-	// cara input manual
-	// data.Value = "Budi"
-	// var data2 = data.Next();
-	// data2.Value = "Darmawan"
-
-	// cara input dengan iterasi
-	for i := 0; i < data.Len(); i++ {
-		data.Value = "Data " + strconv.FormatInt(int64(i), 10)
-		data = data.Next()
-	}
-
-	// mencetak seluruh data ring
-	data.Do(func(value interface{}){
-		fmt.Println(value)
-	})
-	/*
-		Data 0
-		Data 1
-		Data 2
-		Data 3
-		Data 4
-	*/
-}
-```
-
-## Package Sort
-```go
-import "sort"
-import "fmt"
-
-type User struct {
-	Name string
-	Age int
-}
-
-// membuat struct menjadi array
-type UserSlice []User
-
-// membuat interface untuk Len()
-func (value UserSlice) Len() int {
-	return len(value)
-}
-
-// membuat interface untuk Less(i, j int)
-func (value UserSlice) Less(i, j int) bool {
-	return value[i].Age <  value[j].Age
-}
-
-// membuat interface untuk Swap(i, j int)
-func (value UserSlice) Swap(i, j int) {
-	value[i], value[j] = value[j], value[i]
-}
-
-func main() {
-
-	users := []User {
-		{"Budi", 30},
-		{"Iwan", 35},
-		{"Wati", 25},
-		{"Ani", 20},
-		{"Andi", 15},
-	}
-
-	sort.Sort(UserSlice(users))
-
-	fmt.Println(users) // [{Andi 15} {Ani 20} {Wati 25} {Budi 30} {Iwan 35}]
-
-}
-```
-
-## Package Time
-```go
-import "time"
-import "fmt"
-
-func main() {
-
-	// waktu saat ini
-	now := time.Now()
-
-	fmt.Println(now) // 2022-10-09 13:06:25.5383441 +0700 +07 m=+0.003744201
-	fmt.Println(now.Year()) // 2022
-	fmt.Println(now.Month()) // October
-	fmt.Println(now.Day()) // 9
-	fmt.Println(now.Hour()) // 13
-	fmt.Println(now.Minute()) // 6
-	fmt.Println(now.Second()) // 25
-	fmt.Println(now.Nanosecond()) // 538344100
-
-	// mengeset tanggal
-	utc := time.Date(2022, 10, 10, 10, 10, 10, 10, time.UTC)
-	fmt.Println(utc) // 2022-10-10 10:10:10.00000001 +0000 UTC
-
-	// parsing waktu
-	layout := "2006-01-02"
-	parse, _ := time.Parse(layout, "2020-10-01")
-	fmt.Println(parse) // 2020-10-01 00:00:00 +0000 UTC
-
-}
-```
-
-## Package Reflect
-```go
-import "reflect"
-import "fmt"
-
-type Sample struct {
-	Name string `required:"true" max:"10"`
-}
-
-type ContohLagi struct {
-	Name string `required="true"`
-	Description string
-}
-
-// fungsi untuk validasi
-func IsValid(data interface{}) bool {
-	t := reflect.TypeOf(data)
-	for i := 0; i < t.NumField(); i++ {
-		field := t.Field(i)
-		if field.Tag.Get("required") == "true" {
-			value := reflect.ValueOf(data).Field(i).Interface()
-			if value == "" {
-				return false
-			}
-		}
-	}
-	return true
-}
-
-func main() {
-
-	sample := Sample{"Budi"}
-
-	var sampleType = reflect.TypeOf(sample)
-
-	fmt.Println(sampleType.NumField()) // 1
-	fmt.Println(sampleType.Field(0).Name) // Name
-	fmt.Println(sampleType.Field(0).Tag.Get("required")) // true
-	fmt.Println(sampleType.Field(0).Tag.Get("max")) // 10
-	fmt.Println(sampleType.Field(0).Tag.Get("min")) // kososng karena tidak ada tag min
-
-	// contoh validasi
-	sample.Name = ""
-	fmt.Println(IsValid(sample)) // false
-
-	contoh := ContohLagi{"Budi", ""} // true karena tidak dipasang tag required
-	fmt.Println(IsValid(contoh)) // true
-	
-}
-```
-
-## Package Regexp
-```go
-import "regexp"
-import "fmt"
-
-func main() {
-
-	var regex *regexp.Regexp = regexp.MustCompile("e([a-z])a")
-	fmt.Println(regex.MatchString("eka")) // true
-	fmt.Println(regex.MatchString("eta")) // true
-	fmt.Println(regex.MatchString("eDa")) // false
-
-	search := regex.FindAllString("eka eko eda eta eya eki", -1)
-	fmt.Println(search) // [eka eda eta eya]
-}
+## 33. Remove Whitespace from Start and End
+```js
+// Test 3
+let hello = "   Hello, World!  ";
+let wsRegex = /\s*(.*)\s\s+/; // mengambil kata apapun dengan (.*) dan menghilangkan whitspace di depan \s* dan whitespace di belakang \s\s+
+let replaceText = "$1"
+let result = hello.replace(wsRegex, replaceText); // Change this line
+
+console.log(result) // Hello, World!
 ```
 
 ##
@@ -1469,9 +552,9 @@ git push
 
 Untuk `menyoroti` bungkus text dengan backtick 1x
 
-## Package 
-```go
-Isi
+##  
+```js
+
 ```
 
 Update README.md

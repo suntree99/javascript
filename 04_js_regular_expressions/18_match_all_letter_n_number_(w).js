@@ -1,7 +1,7 @@
 //? Match All Letters and Numbers
 
-let longHand = /[A-Za-z0-9_]+/;
-let shortHand = /\w+/;
+let longHand = /[A-Za-z0-9_]+/; // semua huruf besar dan kecil, angka, dan _
+let shortHand = /\w+/; // \w adalah singkatannya
 let numbers = "42";
 let varNames = "important_var";
 console.log(longHand.test(numbers)); // true

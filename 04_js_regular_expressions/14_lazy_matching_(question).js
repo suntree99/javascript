@@ -1,8 +1,8 @@
-//? Find Characters with Lazy Matching
+//? Find Characters with Lazy Matching (?)
 
 let textExample = "titanic";
-let myRegexExample = /t[a-z]*i/;
-let myRegexExample2 = /t[a-z]*?i/;
+let myRegexExample = /t[a-z]*i/; // secara default mengambil sebanyak2nya karakter
+let myRegexExample2 = /t[a-z]*?i/; // dengan ? mengambil paling sedikit karakter yang ditemukan diantara range []
 console.log(textExample.match(myRegexExample)); // [ 'titani', index: 0, input: 'titanic', groups: undefined ]
 console.log(textExample.match(myRegexExample2)); // [ 'ti', index: 0, input: 'titanic', groups: undefined ]
 

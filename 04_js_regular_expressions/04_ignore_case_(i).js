@@ -1,7 +1,7 @@
-//? Ignore Case While Matching
+//? Ignore Case While Matching 
 
 let myString = "freeCodeCamp";
-let fccRegex = /freecodecamp/i; // Change this line
+let fccRegex = /freecodecamp/i; // i (ignore) tidak memperhatikan besar kecilnya huruf
 let result = fccRegex.test(myString);
 
 console.log(result); // true

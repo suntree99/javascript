@@ -2,7 +2,7 @@
 
 let american = "color";
 let british = "colour";
-let rainbowRegex= /colou?r/;
+let rainbowRegex= /colou?r/; // mengecek ada atau tidak 1 karakter tertentu
 console.log(rainbowRegex.test(american)); // true
 console.log(rainbowRegex.test(british)); // true
 

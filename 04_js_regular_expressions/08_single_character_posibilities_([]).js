@@ -4,7 +4,7 @@ let bigStr = "big";
 let bagStr = "bag";
 let bugStr = "bug";
 let bogStr = "bog";
-let bgRegex = /b[aiu]g/;
+let bgRegex = /b[aiu]g/; // [] mencari kata dengan kemungkinan 1 karakter dalamnya 
 console.log(bigStr.match(bgRegex)); // [ 'big', index: 0, input: 'big', groups: undefined ]
 console.log(bagStr.match(bgRegex)); // [ 'bag', index: 0, input: 'bag', groups: undefined ]
 console.log(bugStr.match(bgRegex)); // [ 'bug', index: 0, input: 'bug', groups: undefined ]

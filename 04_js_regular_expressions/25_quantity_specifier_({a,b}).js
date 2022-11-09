@@ -1,8 +1,8 @@
-//? Specify Upper and Lower Number of Matches
+//? Specify Upper and Lower Number of Matches ({})
 
 let A4 = "aaaah";
 let A2 = "aah";
-let multipleA = /a{3,5}h/;
+let multipleA = /a{3,5}h/; // perulangan 1 karakter dalam range {3-5}
 console.log(multipleA.test(A4)); // true
 console.log(multipleA.test(A2)); // false
 

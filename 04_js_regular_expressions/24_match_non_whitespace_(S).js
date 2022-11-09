@@ -2,7 +2,7 @@
 
 // \S = [^ \r\t\f\n\v]
 let whiteSpace = "Whitespace. Whitespace everywhere!"
-let nonSpaceRegex = /\S/g;
+let nonSpaceRegex = /\S/g; // \S (huruf besar) merupakan pengecualian dari \s
 console.log(whiteSpace.match(nonSpaceRegex).length); // 32
 
 let sample = "Whitespace is important in separating words";

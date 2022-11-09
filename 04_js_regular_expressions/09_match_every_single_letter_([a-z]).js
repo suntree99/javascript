@@ -3,7 +3,7 @@
 let catStr = "cat";
 let batStr = "bat";
 let matStr = "mat";
-let bgRegex = /[a-e]at/;
+let bgRegex = /[a-e]at/; // [-] mencari kata dengan kemungkinan 1 karakter dalam range
 console.log(catStr.match(bgRegex)); // [ 'cat', index: 0, input: 'cat', groups: undefined ]
 console.log(batStr.match(bgRegex)); // [ 'bat', index: 0, input: 'bat', groups: undefined ]
 console.log(matStr.match(bgRegex)); // null

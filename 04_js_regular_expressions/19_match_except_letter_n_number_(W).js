@@ -1,6 +1,6 @@
 //? Match Everything But Letters and Numbers
 
-let shortHand2 = /\W/;
+let shortHand2 = /\W/; // \W (huruf besar) menjadi pengecualian dari \w
 let numbers2 = "42%";
 let sentence = "Coding!";
 console.log(numbers2.match(shortHand2)); // [ '%', index: 2, input: '42%', groups: undefined ]
