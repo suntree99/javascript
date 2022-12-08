@@ -12,8 +12,7 @@ console.log("Hello World");
 2 + 3; // ini juga merupakan expression. Interpreter mengevaluasi kode dan juga akan menghasilkan nilai 5.
 ```
 
-* Statement adalah instruksi untuk melakukan sebuah aksi tertentu.
-Seperti membuat variabel, melakukan perulangan, pengecekan kondisi, dll.
+* Statement adalah instruksi untuk melakukan sebuah aksi tertentu (membuat variabel, melakukan perulangan, pengecekan kondisi, dll).
 ```js
 var yourName;
 let yourAge;
