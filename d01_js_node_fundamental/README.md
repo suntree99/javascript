@@ -6,6 +6,7 @@ console.log("Hello World");
 ```
 
 ## Expression & Statement
+
 * Expression adalah unit kode yang dapat dievaluasi menjadi suatu nilai.
 ```js
 5; // ini merupakan expression. Interpreter membaca kode ini dan menghasilkan nilai 5.
@@ -14,98 +15,142 @@ console.log("Hello World");
 
 * Statement adalah instruksi untuk melakukan sebuah aksi tertentu (membuat variabel, melakukan perulangan, pengecekan kondisi, dll).
 ```js
-var yourName;
-let yourAge;
-const numberOfDays;  // declaration statement.
+var yourName; // declaration statement. Var sudah tidak disarankan karena dapat menimbulkan ambigu.
+let yourAge; // declaration statement. Let disarankan untuk digunakan.
+const numberOfDays; // declaration statement. Const digunakan untuk membuat konstanta (nilai tidak berubah), jika diubah akan error.
 ```
 
 ## Comment
 
 * Single Line Comment
-	```kotlin
+	```js
 	// single line comment
 	```
 
 * Multi Line Comment
-	```kotlin
+	```js
 	/*
 		multi line comment
-		Hello Kotlin
+		Hello Javascript
 	*/
 	```
 
 ## Variable & Operation
 
-* Variable
-	* Struktur deklarasi variabel
-		```kotlin
-		var identifier: Type = initialization
-		```
-		```kotlin
-		var name: String = "Budi Darmawan"
-		```
-		* Tipe data boleh tidak ditulis jika variable langsung diinisialisasi (diberikan nilai) `var name = "Budi Darmawan"`
+* Struktur deklarasi variabel
+	```js
+	let firstName; // declaration statement.
+	firstName = "Budi"; // assignment expression.
+	```
+	```js
+	let lastName = "Darmawan" // assignment expression.
+	```
 
-* Operasi pada Tipe Data
-	* Operasi + pada String
-		```kotlin
-		val firstName = "Budi "
-		val lastName = "Darmawan"
-		print(firstWord + lastWord) // Budi Darmawan
-		```
-	* Operasi + pada Integer
-		```kotlin
-		val valueA: Int = 10
-		val valueB = 20
-		print(valueA + valueB) // 30
-		```
+* Posisi deklarasi variable
+	```js
+	let fullName = let lastName; // Error karena let lastName adalah sebuah statement untuk deklarasi variabel. Statement tidak bisa berada di posisi expression.
+	let fullName = (lastName = "Skywalker"); // (lastName = "Skywalker") merupakan expression, sehingga kode ini tidak error.
+	let fullName = "Luke" + "Skywalker"; // "Luke" + "Skywalker" juga merupakan expression, sehingga kode ini tidak error.
+	```
 
-## Char
-Char digunakan untuk menyimpan karakter tunggal, bisa dibuat menggunakan tanda kutip tunggal (' ')
-```kotlin
-val character = 'A'
+* Aturan penamaan variable
+	* Harus dimulai dengan huruf atau underscore (_).
+	* Dapat terdiri dari huruf, angka, dan underscore (_) dengan berbagai kombinasi.
+	* Tidak boleh mengandung spasi (whitespace). Jika penamaan variabel lebih dari dua kata, tuliskan secara camelCase. Contoh firstName, lastName, catName, dll.
+	* Tidak boleh mengandung karakter spesial (! . , / \ + * = dll.)
+
+## Undefined
+
+Tipe data ini terbentuk ketika sebuah variabel tidak memiliki nilai
+```js
+let u;
+console.log(u); // undefined
+console.log(typeof(u)); // undefined
 ```
 
-* Operasi pada Char
-	```kotlin
-	var vocal = 'A'
+## Numbers
 
-	println("Vocal " + vocal++) // Vocal A
-	println("Vocal " + vocal++) // Vocal B
-	println("Vocal " + vocal++) // Vocal C
-	println("Vocal " + vocal--) // Vocal D
-	println("Vocal " + vocal--) // Vocal C
-	println("Vocal " + vocal--) // Vocal B
-	println("Vocal " + vocal--) // Vocal A
+* Bilangan Bulat dan Desimal
+	```js
+	let x = 10;
+	console.log(x); // 10
+	console.log(typeof(x)); // number 
+
+	let y = 17.25;
+	console.log(y); // 17.25
+	console.log(typeof(y)); // number
 	```
-	_Hal ini karena setiap Char merupakan representasi dari Unicode. Ketika Unicode A (0041) diincrement akan menjadi 0042 yang merupakan Unicode dari B._
+
+* Operator Aritmatika
+	```js
+	let a = 12;
+	let b = 9;
+
+	console.log(a + b); // 21
+	console.log(a - b); // 3
+	console.log(a * b); // 108
+	console.log(a / b); // 1.3333333333333333
+	console.log(a % b); // 3
+	console.log(a ** b); // 5159780352 (pangkat)
+	```
+
+* Increment dan Decrement
+	```js
+	let postfix = 5;
+	console.log(postfix++); // 5
+	console.log(postfix); // 6
+
+	let prefix = 5;
+	console.log(++prefix); // 6
+	```
+	* Jika dituliskan setelah variabel (x++), expression akan menghasilkan nilai variabel sebelum ditingkatkan nilainya.
+	* Jika dituliskan sebelum variabel (++x), expression akan menghasilkan nilai variabel setelah ditingkatkan nilainya.
+
+* BigInt
+	* BigInt digunakan untuk angka yang melebihi range Number (-(2^53 - 1) hingga (2^53 - 1))
+	```js
+	const bigNumber = 1234567890123456789012345678901234567890n; // BigInt diakhiri 'n'
+	const myInt = 1234567890123456789012345678901234567890;
+
+	console.log(bigNumber); // 1234567890123456789012345678901234567890n
+	console.log(myInt); // 1.2345678901234568e+39
+	```
+
+* Operator Aritmatika pada BigInt
+	```js
+	console.log(5n + 2n); // 7n
+	console.log(5n - 2n); // 3n
+	console.log(5n * 2n); // 10n
+	console.log(5n / 2n); // 2n (bukan 2.5n - BigInt dibulatkan kebawah)
+	console.log(5n % 2n); // 1n
+	```
 
 ## String
 String digunakan untuk menyimpan kumpulan karakter, bisa dibuat menggunakan tanda kutip ganda (" ")
-```kotlin
+```js
 val name = "Budi"
 ```
 
 * Operasi pada String
-	```kotlin
-	val text  = "Kotlin"
+	```js
+	val text  = "js"
 	val firstChar = text[0]
 
-	print("First character of $text is $firstChar") // First character of Kotlin is K
+	print("First character of $text is $firstChar") // First character of js is K
 	```
 	_Hal ini karena String adalah sekumpulan Char berbentuk Array, sehingga kita bisa mendapatkan karakter tunggal dengan manfaatkan 
 	
 * Loop pada String
-	```kotlin
-	val text  = "Kotlin"
+	```js
+	val text  = "js"
 	for (char in text){
 		print("$char ") // K o t l i n 
 	}
 	```
 
 * Escaped String
-	```kotlin
-	val statement = "Kotlin is \"Awesome!\""
+	```js
+	val statement = "js is \"Awesome!\""
 	```
 	_Selain \” di atas, terdapat beberapa escaped character lain di dalam sebuah String, antara lain:_
 	* _\t: menambah tab ke dalam teks._
@@ -116,7 +161,7 @@ val name = "Budi"
 	* _\u00A9: akan menampilkan unicode ©_
 
 * Raw String
-	```kotlin
+	```js
 	val line = """
 		Line 1
 		Line 2
@@ -137,37 +182,37 @@ val name = "Budi"
 
 ## Function
 * Struktur deklarasi Function
-	```kotlin
+	```js
 	fun functionName(param1: Type1, param2: Type2, ...): ReturnType {
 		return result
 	}
 	```
-	```kotlin
+	```js
 	fun setUser(name: String, age: Int): String {
 		return "Your name is $name, and you $age years old"
 	}
 	```
 
 	* Expression Function (Jika fungsi hanya berisi satu expression untuk menentukan nilai kembalian) 
-		```kotlin
+		```js
 		fun setUser(name: String, age: Int): String = "Your name is $name, and you $age years old"
 		```
 	
 	* Void Function (Jika fungsi tidak mengembalikan nilai maka digunakan `Unit` sebagai tipe kembaliannya)
-		```kotlin
+		```js
 		fun printUser(name: String): Unit {
 			print("Your name is $name")
 		}
 		```
 		* Penulisan Unit dapat dihilangkan
-		```kotlin
+		```js
 		fun printUser(name: String) {
 			print("Your name is $name")
 		}
 		```
 
 * Pemanggilan function
-	```kotlin
+	```js
 	fun setUser(name: String, age: Int) = "Your name is $name, and you $age years old"
 	
 	fun printUser(name: String) {
@@ -184,7 +229,7 @@ val name = "Budi"
 
 ## If Expression 
 * If
-	```kotlin
+	```js
 	val openHours = 7
 	val now = 20
 
@@ -194,7 +239,7 @@ val name = "Budi"
 	```
 
 * If Else
-	```kotlin
+	```js
 	val openHours = 7
 	val now = 20
 	val office: String
@@ -209,7 +254,7 @@ val name = "Budi"
 	```
 
 * Menyimpan nilai If Expression langsung pada variable
-	```kotlin
+	```js
 	val openHours = 7
 	val now = 20
 	val office: String
@@ -224,7 +269,7 @@ val name = "Budi"
 	```
 
 * If .. Else If .. Else
-	```kotlin
+	```js
 	val openHours = 7
 	val now = 7
 	val office: 
@@ -239,11 +284,11 @@ val name = "Budi"
 	
 	print(office) // Wait a minute, office will be open
 	```
-	&#x1F534; _Kotlin tidak mendukung ternary operator (condition ? then : else), karena peran dari operator tersebut sudah digantikan dengan if expressions._
+	&#x1F534; _js tidak mendukung ternary operator (condition ? then : else), karena peran dari operator tersebut sudah digantikan dengan if expressions._
 
 ## Boolean
 * Conjunction atau AND (&&)
-	```kotlin
+	```js
 	val officeOpen = 7
 	val officeClosed = 16
 	val now = 20
@@ -257,7 +302,7 @@ val name = "Budi"
 	print("Office is open : $isOpen") // Office is open : false
 	```
 	* Dapat disederhanakan menjadi
-	```kotlin
+	```js
 	val officeOpen = 7
 	val officeClosed = 16
 	val now = 20
@@ -268,7 +313,7 @@ val name = "Budi"
 	```
 
 * Disjunction atau OR (||)
-	```kotlin
+	```js
 	val officeOpen = 7
 	val officeClosed = 16
 	val now = 20
@@ -279,7 +324,7 @@ val name = "Budi"
 	```
 
 * Negation atau NOT (!)
-	```kotlin
+	```js
 	val officeOpen = 7
 	val now = 10
 	val isOpen = now > officeOpen
@@ -295,109 +340,16 @@ val name = "Budi"
 	*/
 	```
 
-## Numbers
-* Int (32 Bit)
-	```kotlin
-	val intNumber = 100
-	```
-	_Range -2^31 sampai +2^31-1_
-
-* Long (64 Bit)
-	```kotlin
-	val longNumber: Long = 100
-	```
-	```kotlin
-	val longNumber = 100L
-	```
-	_Range -2^63 sampai +2^63-1_
-
-* Short (16 Bit)
-	```kotlin
-	val shortNumber: Short = 10
-	```
-	```kotlin
-	val longNumber = 100L
-	```
-	_Range -2^63 sampai +2^63-1_
-
-* Byte (8 Bit)
-	```kotlin
-	val byteNumber = 0b11010010
-	```
-	_Range -128 sampai +127_
-
-* Double (64 Bit)
-	```kotlin
-	val doubleNumber: Double = 1.3
-	```
-	_Dapat menyimpan 15-16 angka dibelakang koma_
-
-* Float (32 Bit)
-	```kotlin
-	val floatNumber: Float = 0.123456789f //yang terbaca hanya 0.1234567
-	```
-	_Dapat menyimpan 6-7 angka dibelakang koma_
-
-* Nilai minimum, maximum dan Overflow
-	```kotlin
-	val minInt = Int.MIN_VALUE
-	val maxInt = Int.MAX_VALUE
-    val overRangeInt = Int.MAX_VALUE + 1 // Nilai overflow akan loop ke nilai minimum
-
-	println(minInt) // -2147483648
-	println(maxInt) // 2147483647
-    println($overRangeInt) // -2147483648
-	```
-
-* Operator Aritmatika
-	```kotlin
-    val numberOne = 1
-    val numberTwo = 2
- 
-    println(numberOne + numberTwo) // 3
-    println(numberOne - numberTwo) // -1
-    println(numberOne * numberTwo) // 2
-    println(numberOne / numberTwo) // 0 (pembagian dikotlin dibulatkan kebawah)
-	```
-	* _Jika pembagian ingin spesifik gunakan tipe data double_
-	* _Operasi aritmatika mengikuti prinsip KuKaBaTaKu (Kurung Kali Bagi Tambah Kurang)_
-
-* Konversi Number
-	```kotlin
-	val byteNumber: Byte = 10
-    val intNumber: Int = byteNumber.toInt()
-
-	print(intNumber) // 10
-
-	val stringNumber = "23"
-    val intNumber3 = 3
- 
-    print(intNumber3 + stringNumber.toInt()) // 26
-	```
-	_Dalam konversi perlu memperhatikan range overflow, berikut beberapa fungsi konversi number:_
-	* _toByte(): Byte_
-	* _toShort(): Short_
-	* _toInt(): Int_
-	* _toLong(): Long_
-	* _toFloat(): Float_
-	* _toDouble(): Double_
-	* _toChar(): Char_
-
-* Readable Underscore
-	```kotlin
-	val readableNumber = 1_000_000 // mudah dibaca dengan tanda underscore 
-    print(readableNumber) // 1000000
-	```
 ## Array
-Array di Kotlin direpresentasikan oleh kelas Array yang memiliki fungsi *get* dan *set* serta properti *size*.
+Array di js direpresentasikan oleh kelas Array yang memiliki fungsi *get* dan *set* serta properti *size*.
 
 * Array dapat dibuat dengan library function *arrayOf()*
-	```kotlin
+	```js
 	val array = arrayOf(1, 3, 5, 7)
 	```
 
 * Array dapat menyimpan tipe data yang berbeda
-	```kotlin
+	```js
 	val mixArray = arrayOf(1, 3, 5, 7 , "Dicoding" , true)
 	```
 
@@ -408,12 +360,12 @@ Array di Kotlin direpresentasikan oleh kelas Array yang memiliki fungsi *get* da
 	* longArrayOf() : LongArray
 	* shortArrayOf() : ShortArray
 	* byteArrayOf() : ByteArray*
-	```kotlin
+	```js
 	val intArray = intArrayOf(1, 3, 5, 7)
 	```
 
 * Mengakses nilai Array
-	```kotlin
+	```js
 	fun main() {
 		val intArray = intArrayOf(1, 3, 5, 7)
 		print(intArray[2]) // 5
@@ -421,7 +373,7 @@ Array di Kotlin direpresentasikan oleh kelas Array yang memiliki fungsi *get* da
 	```
 
 * Mengganti nilai Array
-	```kotlin
+	```js
 	fun main() {
 		val intArray = intArrayOf(1, 3, 5, 7)  // [1, 3, 5, 7]
 		intArray[2] = 11                       // [1, 3, 11, 7]
@@ -431,28 +383,28 @@ Array di Kotlin direpresentasikan oleh kelas Array yang memiliki fungsi *get* da
 	```
 
 * Array juga dapat dibuat dengan Cunstructor *Array()* dengan 2 argumen yaitu *size* dan fungsi lambda
-	```kotlin
+	```js
 	val intArray = Array(4, { i -> i * i }) // [0, 1, 4, 9]
 	```
 
 ## Nullable Types
 NullPointerException (NPE) is *“The Billion Dollar Mistake”*
 * Secara default variabel tidak boleh bernilai null
-	```kotlin
+	```js
 	val text: String = null // compile time error
 	```
 
 * Variabel boleh bernilai null jika diset sebagai nullable dengan tanda ?
-	```kotlin
+	```js
 	val text: String? = null
 	```
 	Namun variable nullable tidak bisa langsung diakses
-	```kotlin
+	```js
 	val textLength = text.length // compile time error
 	```
 
 * Vaeriable nullabel perlu diperiksa dahulu agar bisa diakses atau dikelola
- 	```kotlin
+ 	```js
 	if (text != null){
 		val textLength = text.length // ready to go
 	}
@@ -461,24 +413,24 @@ NullPointerException (NPE) is *“The Billion Dollar Mistake”*
 ## Safe Calls dan Elvis Operator
 * Safe Calls Operator (?.)
 	* _Dengan safe call, kompiler akan melewatkan proses jika objek tersebut bernilai null._
- 	```kotlin
+ 	```js
 	val text: String? = null
 	text?.length
 	```
 * Elvis Operator (?:)
 	* _Elvis operator memungkinkan kita untuk menetapkan default value atau nilai dasar jika objek bernilai null._
- 	```kotlin
+ 	```js
 	val text: String? = null
 	val textLength = text?.length ?: 7
 	```
 	Kode di atas sebenarnya sama seperti ketika kita menggunakan if/else berikut: 
-	```kotlin
+	```js
 	val textLength = if (text != null) text.length else 7
 	```
 
 * Non-Null Assertion (!!)
 	* _Non-null assertion membuat objek nullable dapat diakses. Namun tetap berisiko NPE jika objek bernilai null._
-	```kotlin
+	```js
 	val text: String? = null
 	val textLength = text!!.length // ready to go ???
 	```
@@ -486,32 +438,246 @@ NullPointerException (NPE) is *“The Billion Dollar Mistake”*
 ## String Template
 String template membuat variable dapat dimasukan kedalam string tanpa concatenation (+)
 * Tanpa concatenation ($)
-	```kotlin
-	val name = "Kotlin"
-    print("My name is $name") // My name is Kotlin
+	```js
+	val name = "js"
+    print("My name is $name") // My name is js
 	```
 
 * Dengan concatenation (+)
-	```kotlin
-		val name = "Kotlin"
-    print("My name is " + name) // My name is Kotlin
+	```js
+		val name = "js"
+    print("My name is " + name) // My name is js
 	```
 
 * Mendukung tipe data selain string
-	```kotlin
-	val name = "Kotlin"
+	```js
+	val name = "js"
     val old = 3
-    print("My name is $name, im $old years old")  // My name is Kotlin, im 3 years old
+    print("My name is $name, im $old years old")  // My name is js, im 3 years old
 	```
 
 * Menyisipkan expression dengan kurung kurawal ${}
-	```kotlin
+	```js
 	val hour = 7
     print("Office ${if (hour > 7) "already close" else "is open"}") // Office is open
 	```
 
 ##
 ##
+
+## Kuis Object
+
+```js
+/**
+ * TODO
+ * 1. Buatlah variabel dengan nama restaurant yang bertipe object dengan ketentuan berikut:
+ *    - Memiliki properti bernama "name"
+ *       - Bertipe data string
+ *       - Bernilai apa pun, asalkan tidak string kosong atau null.
+ *    - Memiliki properti bernama "city"
+ *       - Bertipe data string
+ *       - Bernilai apa pun, asalkan tidak string kosong atau null.
+ *    - Memiliki properti "favorite drink"
+ *       - Bertipe data string
+ *       - Bernilai apa pun, asalkan tidak string kosong atau null.
+ *    - Memiliki properti "favorite food"
+ *       - Bertipe data string
+ *       - Bernilai apa pun, asalkan tidak string kosong atau null.
+ *    - Memiliki properti "isVegan"
+ *       - Bertipe data boolean
+ *       - Bernilai boolean apa pun.
+ *
+ * 2. Buatlah variabel bernama name.
+ *    Kemudian isi dengan nilai name dari properti object restaurant
+ * 3. Buatlah variabel bernama favoriteDrink.
+ *    Kemudian isi dengan nilai "favorite drink" dari properti object restaurant
+ */
+
+
+// TODO
+const restaurant = {
+  name: "My Resto",
+  city: "Tangerang",
+  "favorite drink": "Mojito",
+  "favorite food": "Pizza",
+  isVegan: false,
+}
+
+const {name, "favorite drink":favoriteDrink} = restaurant;
+
+console.log(restaurant, name, favoriteDrink);
+
+/**
+ * Jangan hapus kode di bawah ini
+ */
+module.exports = { restaurant, name, favoriteDrink };
+```
+
+## Kuis Array
+
+```js
+/**
+ * TODO:
+ * Buatlah sebuah variabel dengan nama evenNumber yang merupakan sebuah array dengan ketentuan:
+ *   - Array tersebut menampung bilangan genap dari 1 hingga 100
+ *
+ * Catatan:
+ *   - Agar lebih mudah, gunakanlah for loop dan logika if untuk mengisi bilangan genap pada array.
+ */
+
+// TODO
+let evenNumber = [];
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 2 == 0) {
+    evenNumber.push(i)
+  }
+}
+
+console.log(evenNumber);
+
+/**
+ * Jangan hapus kode di bawah ini
+ */
+
+module.exports = evenNumber;
+```
+
+## Kuis Map
+
+```js
+/**
+ * TODO:
+ * 1. Buatlah variabel currency yang merupakan Map dengan kriteria:
+ *   - key "USD", value 14000
+ *   - key "JPY", value 131
+ *   - key "SGD", value 11000
+ *   - key "MYR", value 3500
+ * 2. Buatlah variabel priceInIDR yang bernilai dari hasil perkalian:
+ *     - priceInJPY dengan nilai currency JPY
+ */
+
+const priceInJPY = 5000;
+
+// TODO
+const currency = new Map(
+  [
+    ["USD", 14000],
+   	["JPY", 131],
+	["SGD", 11000],
+ 	["MYR", 3500],
+  ]
+)
+
+let priceInIDR = priceInJPY * currency.get("JPY");
+
+console.log(currency, priceInIDR);
+
+/**
+ * Jangan hapus kode di bawah ini
+ */
+module.exports = { currency, priceInJPY, priceInIDR };
+```
+
+## Kuis Function
+
+```js
+/**
+ * TODO:
+ * 1. Buatlah fungsi bernama minimal dengan ketentuan berikut:
+ *    - Menerima dua buah argumen number, a dan b.
+ *    - Mengembalikan nilai terkecil antara a atau b.
+ *    - Bila nilai keduanya sama, maka kembalikan dengan nilai a
+ *
+ *    contoh:
+ *    minimal(1, 4) // 1
+ *    minimal(3, 2) // 2
+ *    minimal(3, 3) // 3
+ *
+ * 2. Buatlah fungsi bernama power dengan ketentuan berikut:
+ *    - Menerima dua buah argumen number, a dan b.
+ *    - Mengembalikan nilai dari hasil perkalian a sebanyak b (fungsi kuadrat).
+ *
+ *    contoh:
+ *    power(7, 3) // 343
+ *    power(3, 3) // 27
+ *    power(4, 0.5) // 2
+ */
+
+
+// TODO
+function minimal(a, b) {
+  switch (a < b) {
+    case true:
+      return a;
+      break;
+    case false:
+      return b;
+      break;
+    default:
+      return a;
+  }
+}
+
+console.log(minimal(1, 4)); // 1
+console.log(minimal(3, 2)); // 2
+console.log(minimal(3, 3)); // 3
+
+const power = (a, b) => a**b;
+
+console.log(power(7, 3)); // 343
+console.log(power(3, 3)); // 27
+console.log(power(4, 0.5)); // 2
+
+/**
+ * Jangan hapus kode di bawah ini
+ */
+
+module.exports = { minimal, power };
+```
+
+## Kuis 
+
+```js
+
+```
+
+## Kuis 
+
+```js
+
+```
+
+## Kuis 
+
+```js
+
+```
+
+## Kuis 
+
+```js
+
+```
+
+## Kuis 
+
+```js
+
+```
+
+## Kuis 
+
+```js
+
+```
+
+## Kuis 
+
+```js
+
+```
+
 
 # Heading 1 / Judul Utama (gunakan #)
 
@@ -539,7 +705,7 @@ git push
 
 ```
 
-```kotlin
+```js
 
 ```
 
